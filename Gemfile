@@ -5,6 +5,7 @@ gem 'sqlite3'
 gem 'jquery-rails'
 gem 'jbuilder'
 gem 'thin'
+gem 'redis'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
