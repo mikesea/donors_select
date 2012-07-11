@@ -22,3 +22,8 @@ body {
   color: $plain;
   font-family: 'Montserrat', sans-serif;
 }
+
+.project-box {
+  height: 350px;
+  overflow: auto;
+}
