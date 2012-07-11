@@ -1,0 +1,24 @@
+@import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+$lightBlue: #2A53C1;
+$darkBlue: #202A5D;
+$darkRed: #941324;
+$lightRed: #DC2039;
+$plain: #F5F6FA;
+
+body {
+  background-color: $plain;
+}
+
+.navbar-inner {
+  border-radius: 0;
+  min-height: 100px;
+  background-color: $lightBlue;
+  background-image: none;
+}
+
+#logo {
+  color: $plain;
+  font-family: 'Montserrat', sans-serif;
+}
