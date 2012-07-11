@@ -6,6 +6,8 @@ gem 'jquery-rails'
 gem 'jbuilder'
 gem 'thin'
 gem 'redis'
+gem 'spine-rails'
+gem 'eco'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
