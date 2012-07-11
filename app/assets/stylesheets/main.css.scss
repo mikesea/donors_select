@@ -23,18 +23,37 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+#filter_buttons {
+	height: 200px;
+}
+
 .buttons_liner_1 {
-	height: 100px;
-	padding-top: 2px;
-	padding-bottom: 2px;
+	height: 180px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	background-color: $lightRed;
 }
 
 .buttons_liner_2 {
-	height: 98px;
+	height: 160px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	background-color: $darkRed;
 }
 
 .filter_buttons_container {
-	
+	height: 110px;
+	padding-top: 50px;
+	background-color: $darkBlue;
+	padding-left: 15%;
+	padding-right: 15%;
+}
+
+.filter_button {
+	font-family: 'Montserrat', sans-serif;
+	background-color: $plain;
+	list-style-type: none;
+	float: left;
+	border-radius: 5px;
+	text-align: center
 }
