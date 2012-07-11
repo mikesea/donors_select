@@ -41,12 +41,15 @@ body {
 	background-color: $darkRed;
 }
 
-.filter_buttons_container {
+.buttons_liner_3 {
 	height: 110px;
 	padding-top: 50px;
 	background-color: $darkBlue;
-	padding-left: 15%;
-	padding-right: 15%;
+}
+
+.filter_buttons_container {
+	width: 1200px;
+	margin: 0 auto;
 }
 
 .filter_button {
