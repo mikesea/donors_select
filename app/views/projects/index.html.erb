@@ -1,17 +1,21 @@
 <% require "cgi" %>
 <div class="container-fluid">
-  <div class="row">
-    <div class="well span6">
-      <h1><%= "#{@projects["totalProposals"]} Projects Need Funding"  %></h1>
-    </div>
-  </div>
-  <% @projects["proposals"].each do |proposal| %>
-    <div class="well span3 project-box">
-      <%= link_to image_tag(proposal["imageURL"]), proposal["proposalURL"] %>
-      <h4><%= link_to CGI::unescapeHTML(proposal["title"]), proposal["proposalURL"] %></h4>
-      <p><%= proposal["schoolName"] %></p>
-      <p><%= "#{proposal["city"]}, #{proposal["state"]}" %></p>
-      <p><%= CGI::unescapeHTML(proposal["shortDescription"].split(/(!|\.|\?)/).first[0..50] + "...")%></p>
-    </div>
-  <% end %>
+	<div class="projects_count">
+	  <div class="row">
+	    <div class="well span6">
+	      <h1><%= "#{@projects["totalProposals"]} Projects Need Funding"  %></h1>
+	    </div>
+	  </div>
+	</div>
+  <div class="proposals_container">
+	  <% @projects["proposals"].each do |proposal| %>
+	    <div class="well span3 project-box">
+	      <%= link_to image_tag(proposal["imageURL"]), proposal["proposalURL"] %>
+	      <h4><%= link_to CGI::unescapeHTML(proposal["title"]), proposal["proposalURL"] %></h4>
+	      <p><%= proposal["schoolName"] %></p>
+	      <p><%= "#{proposal["city"]}, #{proposal["state"]}" %></p>
+	      <p><%= CGI::unescapeHTML(proposal["shortDescription"].split(/(!|\.|\?)/).first[0..50] + "...")%></p>
+	    </div>
+	  <% end %>
+	</div>
 </div>
