@@ -13,5 +13,8 @@ class Filterer extends Spine.Controller
   filterByState: (e) ->
     @filterActions.empty()
     @filterActions.append @view('filters/states')
+    $("#map").usmap click: (event, data) ->
+      console.log(data.name)
+
 
 window.Filterer = Filterer

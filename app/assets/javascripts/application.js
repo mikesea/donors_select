@@ -15,6 +15,7 @@
 //= require app
 //= require_tree .
 //= require raphael
+//= require color.jquery
 //= require jquery.usmap
 //
 // $('#map').usmap({
