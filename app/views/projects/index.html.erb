@@ -1,4 +1,16 @@
-<% require "cgi" %>
+<div id="filter_buttons">
+  <div class="buttons_liner_1">
+    <div class="buttons_liner_2">
+      <div class="filter_buttons_container">
+        <div class="filter_button well span4" id="state-button">State</div>
+        <div class="filter_button well span4" id="subject-button">Subject</div>
+        <div class="filter_button well span4" id="grade-button">Grade</div>
+      </div>
+    </div>
+  </div>
+  <div class="filter-actions">
+  </div>
+</div>
 <div class="container-fluid">
   <div class="row">
     <div class="well span6">
@@ -15,3 +27,9 @@
     </div>
   <% end %>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+  jQuery(function(){
+    new Filterer({el: $('#filter_buttons')});
+  })
+</script>

@@ -1,0 +1,3 @@
+<h2>hi mom!</h2>
+<% "this will not be rendered" %>
+<%= "this will be rendered" %>
