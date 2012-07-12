@@ -1,3 +1,2 @@
-<h2>hi mom!</h2>
-<% "this will not be rendered" %>
-<%= "this will be rendered" %>
+<div id="map" style="width: 350px; height: 250px;"></div>
+<div id="clicked-state"></div>
