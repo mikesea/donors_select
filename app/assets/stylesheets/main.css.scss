@@ -11,6 +11,10 @@ body {
   background-color: $plain;
 }
 
+.navbar {
+	margin-bottom: 0;
+}
+
 .navbar-inner {
   border-radius: 0;
   min-height: 40px;
