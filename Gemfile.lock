@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/mikesea/donors_choose.git
+  revision: 768f9a28140c88556b15fa89936aa0462748374a
+  specs:
+    donors_choose (1.1.4)
+      json
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -144,6 +151,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 2.0.4.0)
   coffee-rails (~> 3.2.1)
+  donors_choose!
   eco
   factory_girl
   jbuilder
