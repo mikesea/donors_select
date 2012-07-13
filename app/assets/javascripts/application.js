@@ -18,3 +18,6 @@
 //= require color.jquery
 //= require jquery.usmap
 
+$(document).ready(function() {
+	$('#map').usmap({});
+});
