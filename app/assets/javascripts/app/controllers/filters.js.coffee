@@ -3,40 +3,34 @@ class Filterer extends Spine.Controller
 
   elements:
     ".filter-actions" : "filterActions"
-    ".buttons_liner" : "buttonsLiner"
-    "#map" : "usaMap"
 
   events:
     "click #state-button" : "filterByState"
     "click #subject-button" : "filterBySubject"
     "click #grade-button" : "filterByGrade"
+    "click .grade_button" : "gradeList"
 
   constructor: ->
     super
 
   filterByState: (e) ->
     @filterActions.empty()
-    @buttonsLiner.height(700)
+    @el.height(700)
     @filterActions.append @view('filters/states')
     $("#map").usmap click: (event, data) ->
       console.log(data.name)
 
   filterBySubject: (e) ->
-    @buttonsLiner.height(110)
+    @el.height(150)
     @filterActions.empty()
     @filterActions.append @view('filters/subjects')
 
   filterByGrade: (e) ->
     @filterActions.empty()
-    @buttonsLiner.height(200)
-    @filterActions.append @view('filters/grades')    
+    @el.height(200)
+    @filterActions.append @view('filters/grades')
 
-  extendButtonsLiner: ->
-    @buttonsLiner.height(200)
-    console.log(@buttonsLiner)
-
-  clearButtonEffects: ->
-    @filterActions.empty()
-    @buttonsLiner.height(100)
+  gradeList: (e) ->
+    console.log($(e.target).attr('data-grade'))
 
 window.Filterer = Filterer

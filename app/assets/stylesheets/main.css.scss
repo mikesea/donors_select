@@ -33,12 +33,8 @@ body {
 }
 
 #filter_buttons {
-	height: 200px;
-}
-
-.buttons_liner {
-	height: 110px;
 	padding-top: 50px;
+	height: 150px;
 	background: #2a53c1; /* Old browsers */
 	background: -moz-linear-gradient(top, #2a53c1 0%, #207cca 27%, #2989d8 50%, #c0c4d3 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2a53c1), color-stop(27%,#207cca), color-stop(50%,#2989d8), color-stop(100%,#c0c4d3)); /* Chrome,Safari4+ */
@@ -95,4 +91,8 @@ body {
 
 #map {
 	margin: 0 auto;
+}
+
+.projects-container ul {
+	list-style-type:none;
 }
