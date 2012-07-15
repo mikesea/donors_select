@@ -1,0 +1,1 @@
+json.count @data["totalProposals"].to_i
