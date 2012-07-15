@@ -10,13 +10,11 @@
   </div>
 </div>
 <div class="container-fluid">
-	<div class="projects_count">
+  <div class="projects-container">
 	  <div class="row">
-	    <div class="well span6">
+	    <div class="well span6 projects-count">
 	    </div>
 	  </div>
-	</div>
-  <div class="projects_container">
   	<ul class="projects-list">
   	</ul>
 	</div>
@@ -25,6 +23,6 @@
 <script type="text/javascript" charset="utf-8">
   jQuery(function(){
     new Filterer({el: $('#filter_buttons')});
-    new Projector({el: $('.projects_container')})
+    new Projector({el: $('.projects-container')})
   })
 </script>
