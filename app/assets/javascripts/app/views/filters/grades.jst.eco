@@ -1,6 +1,6 @@
 <div id="grade_buttons">
-	<div class="grade_button btn-large" id="grades-prek-2">PreK-2</div>
-	<div class="grade_button btn-large" id="grades-3-5">3-5</div>
-	<div class="grade_button btn-large" id="grades-6-8">6-8</div>
-	<div class="grade_button btn-large" id="grades-9-12">9-12</div>
+	<div class="grade_button btn btn-large" id="grades-prek-2">PreK-2</div>
+	<div class="grade_button btn btn-large" id="grades-3-5">3-5</div>
+	<div class="grade_button btn btn-large" id="grades-6-8">6-8</div>
+	<div class="grade_button btn btn-large" id="grades-9-12">9-12</div>
 </div>

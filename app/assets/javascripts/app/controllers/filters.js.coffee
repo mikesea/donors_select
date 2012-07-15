@@ -29,8 +29,7 @@ class Filterer extends Spine.Controller
   filterByGrade: (e) ->
     @filterActions.empty()
     @buttonsLiner.height(200)
-    @filterActions.append @view('filters/grades')
-    
+    @filterActions.append @view('filters/grades')    
 
   extendButtonsLiner: ->
     @buttonsLiner.height(200)
@@ -39,7 +38,5 @@ class Filterer extends Spine.Controller
   clearButtonEffects: ->
     @filterActions.empty()
     @buttonsLiner.height(100)
-
-
 
 window.Filterer = Filterer
