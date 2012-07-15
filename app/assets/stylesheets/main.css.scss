@@ -56,17 +56,16 @@ body {
 .filter_button {
 	font-family: 'Montserrat', sans-serif;
 	background-color: $plain;
-	list-style-type: none;
 	float: left;
 	border-radius: 5px;
 	text-align: center;
 	font-size: 24px;
 }
 
-.filter_button:click {
-	box-shadow: inset 0 0 10px #000000;
-	-webkit-box-shadow: inset 0 0 10px #000000;
-	-moz-box-shadow: inset 0 0 10px #000000;
+.filter_button:hover {
+	box-shadow: 0 0 10px #000000;
+	-webkit-box-shadow: 0 0 10px #000000;
+	-moz-box-shadow: 0 0 10px #000000;
 }
 
 .proposals_container {
@@ -76,8 +75,24 @@ body {
 
 .projects_count {
 	margin: 0 auto;
-	z-index: 200;
 	position: relative;
 	top: 40%;
 	left: 35%;
+}
+
+#grade_buttons {
+	margin: 0 auto;
+	width: 600px;
+}
+
+.grade_button {
+	float: left;
+	font-family: 'Montserrat', sans-serif;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 24px;
+}
+
+#map {
+	margin: 0 auto;
 }

@@ -17,4 +17,3 @@
 //= require raphael
 //= require color.jquery
 //= require jquery.usmap
-
