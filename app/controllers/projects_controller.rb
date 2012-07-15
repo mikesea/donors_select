@@ -2,6 +2,8 @@ class ProjectsController < ApplicationController
   protect_from_forgery
 
   def index
-    @projects = Project.test_data
+    @data = Project.test_data
+    @projects = @data["proposals"]
   end
 end
+
