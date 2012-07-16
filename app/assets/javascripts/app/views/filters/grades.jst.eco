@@ -1,6 +1,6 @@
 <div id="grade_buttons">
-  <div class="grade_button btn btn-large" id="grades-prek-2" data-grade="prek2">PreK-2</div>
-  <div class="grade_button btn btn-large" id="grades-3-5" data-grade="35">3-5</div>
-  <div class="grade_button btn btn-large" id="grades-6-8" data-grade="68">6-8</div>
-  <div class="grade_button btn btn-large" id="grades-9-12" data-grade="912">9-12</div>
+  <div class="grade_button btn btn-large" id="grades-prek-2" data-api-params="gradeType=1">PreK-2</div>
+  <div class="grade_button btn btn-large" id="grades-3-5" data-api-params="gradeType=2">3-5</div>
+  <div class="grade_button btn btn-large" id="grades-6-8" data-api-params="gradeType=3">6-8</div>
+  <div class="grade_button btn btn-large" id="grades-9-12" data-api-params="gradeType=4">9-12</div>
 </div>

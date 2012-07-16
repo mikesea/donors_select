@@ -45,17 +45,20 @@ body {
 }
 
 .filter_buttons_container {
-  width: 1200px;
-  margin: 0 auto;
+	width: 1200px;
+	height: 50px;
+	margin: 0 auto;
 }
 
 .filter_button {
-  font-family: 'Montserrat', sans-serif;
-  background-color: $plain;
-  float: left;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 24px;
+	font-family: 'Montserrat', sans-serif;
+	background-color: $plain;
+	float: left;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 24px;
+	margin-left: 35px;
+	margin-right: 35px;
 }
 
 .filter_button:hover {
@@ -70,23 +73,28 @@ body {
 }
 
 .projects_count {
-  margin: 0 auto;
-  position: relative;
-  top: 40%;
-  left: 35%;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #grade_buttons {
-  margin: 0 auto;
-  width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	width: 600px;
+	height: 100px;
 }
 
 .grade_button {
-  float: left;
-  font-family: 'Montserrat', sans-serif;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 24px;
+	float: left;
+	font-family: 'Montserrat', sans-serif;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 24px;
+	width: 100px;
+	margin-right: 10px;
+	margin-left: 10px;
 }
 
 #map {
