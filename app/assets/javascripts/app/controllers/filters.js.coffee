@@ -18,6 +18,7 @@ class Filterer extends Spine.Controller
     @el.height(700)
     @filterActions.append @view('filters/states')
     $("#map").usmap click: (event, data) ->
+      $("#state-button").text(data.name)
       console.log(data.name)
 
   filterBySubject: (e) ->
@@ -31,6 +32,12 @@ class Filterer extends Spine.Controller
     @filterActions.append @view('filters/grades')
 
   gradeList: (e) ->
-    console.log($(e.target).attr('data-grade'))
+    $(".grade_button").removeClass("active")
+    grade_button = $(e.target)
+    grade_button.addClass("active")
+    $("#grade-button").text(grade_button.attr('id'))
+    console.log(grade_button.attr('id'))
+
+
 
 window.Filterer = Filterer
