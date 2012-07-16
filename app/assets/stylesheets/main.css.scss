@@ -12,7 +12,7 @@ body {
 }
 
 .navbar {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .navbar-inner {
@@ -33,15 +33,15 @@ body {
 }
 
 #filter_buttons {
-	padding-top: 50px;
-	height: 150px;
-	background: #2a53c1; /* Old browsers */
-	background: -moz-linear-gradient(top, #2a53c1 0%, #207cca 27%, #2989d8 50%, #c0c4d3 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2a53c1), color-stop(27%,#207cca), color-stop(50%,#2989d8), color-stop(100%,#c0c4d3)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #2a53c1 0%,#207cca 27%,#2989d8 50%,#c0c4d3 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #2a53c1 0%,#207cca 27%,#2989d8 50%,#c0c4d3 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #2a53c1 0%,#207cca 27%,#2989d8 50%,#c0c4d3 100%); /* IE10+ */
-	background: linear-gradient(to bottom, #2a53c1 0%,#207cca 27%,#2989d8 50%,#c0c4d3 100%); /* W3C */
+  padding-top: 50px;
+  height: 150px;
+  background: #2a53c1; /* Old browsers */
+  background: -moz-linear-gradient(top, #2a53c1 0%, #207cca 27%, #2989d8 50%, #c0c4d3 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2a53c1), color-stop(27%,#207cca), color-stop(50%,#2989d8), color-stop(100%,#c0c4d3)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #2a53c1 0%,#207cca 27%,#2989d8 50%,#c0c4d3 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #2a53c1 0%,#207cca 27%,#2989d8 50%,#c0c4d3 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #2a53c1 0%,#207cca 27%,#2989d8 50%,#c0c4d3 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #2a53c1 0%,#207cca 27%,#2989d8 50%,#c0c4d3 100%); /* W3C */
 }
 
 .filter_buttons_container {
@@ -62,23 +62,20 @@ body {
 }
 
 .filter_button:hover {
-	box-shadow: 0 0 10px #000000;
-	-webkit-box-shadow: 0 0 10px #000000;
-	-moz-box-shadow: 0 0 10px #000000;
+  box-shadow: 0 0 10px #000000;
+  -webkit-box-shadow: 0 0 10px #000000;
+  -moz-box-shadow: 0 0 10px #000000;
 }
 
 .proposals_container {
-	margin: 0 auto;
-	width: 1400px;
+  margin: 0 auto;
+  width: 1400px;
 }
 
 .projects_count {
 	margin-top: 50px;
 	margin-left: auto;
 	margin-right: auto;
-	position: relative;
-	top: 40%;
-	left: 35%;
 }
 
 #grade_buttons {
@@ -101,9 +98,9 @@ body {
 }
 
 #map {
-	margin: 0 auto;
+  margin: 0 auto;
 }
 
 .projects-container ul {
-	list-style-type:none;
+  list-style-type:none;
 }
