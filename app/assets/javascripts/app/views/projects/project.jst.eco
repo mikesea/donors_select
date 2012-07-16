@@ -1,4 +1,0 @@
-<li class="well">
-<h1><%= @project.title %></h1>
-<img class="thumbnail" src="<%= @project.imageURL %>"></img> 
-</li>

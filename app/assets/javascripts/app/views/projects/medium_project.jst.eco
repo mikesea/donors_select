@@ -1,0 +1,3 @@
+<div class="medium-projects">
+  <img src="<%= @project.imageURL %>"></img>
+</div>

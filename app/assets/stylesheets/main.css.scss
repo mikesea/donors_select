@@ -96,3 +96,38 @@ body {
 .projects-container ul {
 	list-style-type:none;
 }
+
+.large-projects {
+	display: inline;
+  list-style-type: none;
+	margin: 10px;
+	img {
+		padding-bottom: 20px;
+	}
+}
+
+.medium-projects {
+	display: inline;
+  list-style-type: none;
+	margin: 10px;
+	img {
+	  width: 110px;
+		padding-bottom: 20px;
+	}
+}
+
+.small-projects {
+	display: inline;
+  list-style-type: none;
+	margin: 10px;
+	img {
+	  width: 60px;
+		padding-bottom: 20px;
+	}
+}
+
+.projects-count {
+    width: 50%;
+    margin: 20px auto;
+    text-align: center;
+}
