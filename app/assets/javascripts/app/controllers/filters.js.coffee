@@ -32,9 +32,11 @@ class Filterer extends Spine.Controller
     @filterActions.append @view('filters/grades')
 
   gradeList: (e) ->
-    grade = $(e.target).attr('data-grade')
-    $("#grade-button").text(grade)
-    console.log(grade)
+    $(".grade_button").removeClass("active")
+    grade_button = $(e.target)
+    grade_button.addClass("active")
+    $("#grade-button").text(grade_button.attr('id'))
+    console.log(grade_button.attr('id'))
 
 
 
