@@ -1,0 +1,11 @@
+<div class="btn well span3 subject" id="math-science-button">Math and Science</div>
+<div style="display: none" id="math-science-subjects">
+  <div class="btn well span3" id="environmental-science-button">Environmental Science</div>
+</div>
+<div class="btn well span3 subject" id="music-arts-button">Music and the Arts</div>
+<div class="btn well span3 subject" id="literacy-language-button">Literacy and Language</div>
+<div class="btn well span3 subject" id="history-civics-button">History and Civics</div>
+<div class="btn well span3 subject" id="special-needs-button">Special Needs</div>
+<div class="btn well span3 subject" id="applied-learning-button">Applied Learning</div>
+<div class="btn well span3 subject" id="health-sports-button">Health and Sports</div>
+

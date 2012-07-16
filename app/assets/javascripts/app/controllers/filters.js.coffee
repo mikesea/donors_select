@@ -9,6 +9,8 @@ class Filterer extends Spine.Controller
     "click #subject-button" : "filterBySubject"
     "click #grade-button" : "filterByGrade"
     "click .grade_button" : "gradeList"
+    # "click #math-science-button" : "showMathSubjects"
+    "click .subject" : "subjectFilter"
 
   constructor: ->
     super
@@ -29,6 +31,12 @@ class Filterer extends Spine.Controller
     @filterActions.empty()
     @el.height(200)
     @filterActions.append @view('filters/grades')
+
+  subjectFilter: (e) ->
+    console.log($(e.target))
+
+  showMathSubjects: (e) ->
+    $("#math-science-subjects").show()
 
   gradeList: (e) ->
     console.log($(e.target).attr('data-grade'))
