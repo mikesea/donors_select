@@ -9,7 +9,12 @@ class Filterer extends Spine.Controller
     "click #subject-button" : "filterBySubject"
     "click #grade-button" : "filterByGrade"
     "click .grade_button" : "gradeList"
-    # "click #math-science-button" : "showMathSubjects"
+    "click #math-science-button" : "showMathSubjects"
+    "click #music-arts-button" : "showMusicSubjects"
+    "click #literacy-language-button" : "showLiteracySubjects"
+    "click #history-civics-button" : "showHistorySubjects"
+    "click #applied-learning-button" : "showAppliedLearningSubjects"
+    "click #health-sports-button" : "showHealthSubjects"
     "click .subject" : "subjectFilter"
 
   constructor: ->
@@ -32,11 +37,32 @@ class Filterer extends Spine.Controller
     @el.height(200)
     @filterActions.append @view('filters/grades')
 
-  subjectFilter: (e) ->
-    console.log($(e.target))
+  # subjectFilter: (e) ->
+  #   console.log($(e.target))
 
   showMathSubjects: (e) ->
     $("#math-science-subjects").show()
+    $(".subject").hide()
+
+  showMusicSubjects: (e) ->
+    $("#music-art-subjects").show()
+    $(".subject").hide()
+
+  showLiteracySubjects: (e) ->
+    $("#literacy-language-subjects").show()
+    $(".subject").hide()
+
+  showHistorySubjects: (e) ->
+    $("#history-civics-subjects").show()
+    $(".subject").hide()
+
+  showAppliedLearningSubjects: (e) ->
+    $("#applied-learning-subjects").show()
+    $(".subject").hide()
+
+  showHealthSubjects: (e) ->
+    $("#health-sports-subjects").show()
+    $(".subject").hide()
 
   gradeList: (e) ->
     console.log($(e.target).attr('data-grade'))
