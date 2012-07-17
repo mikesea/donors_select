@@ -1,4 +1,4 @@
-json.(@projects) do |json, project|
+json.(@projects["proposals"]) do |json, project|
   json.id project["id"]
   json.proposalURL project["proposalURL"]
   json.imageURL project["imageURL"]
