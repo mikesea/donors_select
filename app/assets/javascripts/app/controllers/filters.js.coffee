@@ -23,6 +23,7 @@ class Filterer extends Spine.Controller
       $("path").attr "class", "state"
       $("path").attr "fill", "#333"
       $("rect").attr "fill", "#333"
+      $("rect").attr "style", "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0; cursor: pointer; "
       $(event.originalEvent.target).attr "fill", "#FF0000"
       $(event.originalEvent.target).attr "style", "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; cursor: pointer; "
       $(event.originalEvent.target).attr "class", "active-state"
