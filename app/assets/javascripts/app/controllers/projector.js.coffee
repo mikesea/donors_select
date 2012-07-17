@@ -1,8 +1,13 @@
 class Projector extends Spine.Controller
+  @extend(Spine.Events)
 
   elements:
     ".projects-list" : "projects"
     ".projects-count" : "count"
+
+  events:
+    "mouseover .project-image" : "showInfo"
+    "mouseout .project-image" : "hideInfo"
 
   constructor: ->
     super
@@ -11,6 +16,12 @@ class Projector extends Spine.Controller
     ProjectsCount.bind "refresh", @updateCount
     Project.fetch()
     ProjectsCount.fetch()
+
+  showInfo: (e) ->
+    $(e.target).first().parent().parent().next().show()
+
+  hideInfo: (e) ->
+    $(".project-info").hide()
 
   addAll: =>
     @projects.empty()
@@ -21,6 +32,7 @@ class Projector extends Spine.Controller
         @addMedium(project)
       else
         @addLarge(project)
+
 
   addSmall: (project) ->
     @projects.append @smallTemplate(project)
