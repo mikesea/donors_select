@@ -93,7 +93,9 @@ class Filterer extends Spine.Controller
     $("#subject-button").addClass("shrink")
 
   changeButtonText: (e) ->
+    $(".sub-subject").removeClass("active")
     sub_subject_button = $(e.target)
+    sub_subject_button.addClass("active")
     $("#subject-button").text(sub_subject_button.attr('id'))
 
   gradeList: (e) ->
