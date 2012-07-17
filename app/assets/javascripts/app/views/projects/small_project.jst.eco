@@ -1,0 +1,3 @@
+<div class="small-projects">
+  <a href="<%= @project.proposalURL %>"><img src="<%= @project.imageURL %>"></img></a>
+</div>

@@ -45,20 +45,20 @@ body {
 }
 
 .filter_buttons_container {
-	width: 1200px;
-	height: 50px;
-	margin: 0 auto;
+  width: 1200px;
+  height: 50px;
+  margin: 0 auto;
 }
 
 .filter_button {
-	font-family: 'Montserrat', sans-serif;
-	background-color: $plain;
-	float: left;
-	border-radius: 5px;
-	text-align: center;
-	font-size: 24px;
-	margin-left: 35px;
-	margin-right: 35px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: $plain;
+  float: left;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 24px;
+  margin-left: 35px;
+  margin-right: 35px;
 }
 
 .filter_button:hover {
@@ -73,28 +73,28 @@ body {
 }
 
 .projects_count {
-	margin-top: 50px;
-	margin-left: auto;
-	margin-right: auto;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #grade_buttons {
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 50px;
-	width: 600px;
-	height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  width: 600px;
+  height: 100px;
 }
 
 .grade_button {
-	float: left;
-	font-family: 'Montserrat', sans-serif;
-	border-radius: 5px;
-	text-align: center;
-	font-size: 24px;
-	width: 100px;
-	margin-right: 10px;
-	margin-left: 10px;
+  float: left;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 24px;
+  width: 100px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 #map {
@@ -103,4 +103,61 @@ body {
 
 .projects-container ul {
   list-style-type:none;
+}
+
+.large-projects {
+  display: inline;
+  list-style-type: none;
+  margin: 10px;
+  img {
+    padding-bottom: 20px;
+  }
+}
+
+.medium-projects {
+  display: inline;
+  list-style-type: none;
+  margin: 10px;
+  img {
+    width: 110px;
+    padding-bottom: 20px;
+  }
+}
+
+.small-projects {
+  display: inline;
+  list-style-type: none;
+  margin: 10px;
+  img {
+    width: 60px;
+    padding-bottom: 20px;
+  }
+}
+
+.projects-count {
+  width: 50%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.subject {
+  float: left;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+  width: 250px;
+  margin-right: 10px;
+  margin-left: 16px;
+  margin-top: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#subject-buttons-container {
+  width: 1200px;
+  height: 50px;
+  margin: 0 auto;
+  float: center;
 }

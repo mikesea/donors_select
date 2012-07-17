@@ -1,0 +1,3 @@
+<li class="large-projects">
+  <img src="<%= @project.imageURL %>"></img>
+</li>
