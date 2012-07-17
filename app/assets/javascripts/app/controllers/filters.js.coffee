@@ -16,6 +16,7 @@ class Filterer extends Spine.Controller
     "click #special-needs-button" : "showSpecialNeeds"
     "click #applied-learning-button" : "showAppliedLearningSubjects"
     "click #health-sports-button" : "showHealthSubjects"
+    "click .sub-subject" : "changeButtonText"
 
   constructor: ->
     super
@@ -27,12 +28,9 @@ class Filterer extends Spine.Controller
     @el.height(700)
     @filterActions.append @view('filters/states')
     $("#map").usmap click: (event, data) ->
-      $("path").attr "class", "state"
-      $("path").attr "fill", "#333"
-      $("rect").attr "fill", "#333"
-      $(event.originalEvent.target).attr "fill", "#FF0000"
-      $(event.originalEvent.target).attr "style", "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; cursor: pointer; "
-      $(event.originalEvent.target).attr "class", "active-state"
+      $('path[style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; cursor: pointer; "]').attr({class:"state", fill:"#00000", style: "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0; cursor: pointer; "})
+      $('rect[style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; cursor: pointer; "]').attr({fill: "#000000", style: "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0; cursor: pointer; "})
+      $(event.originalEvent.target).attr({fill: "#FF0000", style: "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; cursor: pointer; ", class: "active-state"})
       console.log $(event.originalEvent.target)
       $("#state-button").text "State: "+data.name
 
@@ -53,25 +51,25 @@ class Filterer extends Spine.Controller
 
   showMathSubjects: (e) ->
     $("#math-science-subjects").show()
-    $(".subject").hide()
+    $("#subject-buttons-container").hide()
     $("#subject-button").text("Math and Science")
     $("#subject-button").addClass("shrink")
 
   showMusicSubjects: (e) ->
     $("#music-art-subjects").show()
-    $(".subject").hide()
+    $("#subject-buttons-container").hide()
     $("#subject-button").text("Music and the Arts")
     $("#subject-button").addClass("shrink")
 
   showLiteracySubjects: (e) ->
     $("#literacy-language-subjects").show()
-    $(".subject").hide()
+    $("#subject-buttons-container").hide()
     $("#subject-button").text("Literacy and Language")
     $("#subject-button").addClass("shrink")
 
   showHistorySubjects: (e) ->
     $("#history-civics-subjects").show()
-    $(".subject").hide()
+    $("#subject-buttons-container").hide()
     $("#subject-button").text("History and Civics")
     $("#subject-button").addClass("shrink")
 
@@ -81,15 +79,19 @@ class Filterer extends Spine.Controller
 
   showAppliedLearningSubjects: (e) ->
     $("#applied-learning-subjects").show()
-    $(".subject").hide()
+    $("#subject-buttons-container").hide()
     $("#subject-button").text("Applied Learning")
     $("#subject-button").addClass("shrink")
 
   showHealthSubjects: (e) ->
     $("#health-sports-subjects").show()
-    $(".subject").hide()
+    $("#subject-buttons-container").hide()
     $("#subject-button").text("Health and Sports")
     $("#subject-button").addClass("shrink")
+
+  changeButtonText: (e) ->
+    sub_subject_button = $(e.target)
+    $("#subject-button").text(sub_subject_button.attr('id'))
 
   gradeList: (e) ->
     $(".grade_button").removeClass("active")
