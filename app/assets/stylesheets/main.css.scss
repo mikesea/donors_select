@@ -9,6 +9,7 @@ $plain: #F5F6FA;
 
 body {
   background-color: $plain;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .navbar {
@@ -45,20 +46,22 @@ body {
 }
 
 .filter_buttons_container {
-	width: 1200px;
-	height: 50px;
-	margin: 0 auto;
+  width: 1200px;
+  height: 50px;
+  margin: 0 auto;
 }
 
 .filter_button {
-	font-family: 'Montserrat', sans-serif;
-	background-color: $plain;
-	float: left;
-	border-radius: 5px;
-	text-align: center;
-	font-size: 24px;
-	margin-left: 35px;
-	margin-right: 35px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: $plain;
+  height: 60px;
+  padding-top: 20px;
+  float: left;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 36px;
+  margin-left: 35px;
+  margin-right: 35px;
 }
 
 .filter_button:hover {
@@ -67,34 +70,46 @@ body {
   -moz-box-shadow: 0 0 10px #000000;
 }
 
+.filter_button.active {
+  -moz-box-shadow: inset 5px 5px 10px #888;
+  -webkit-box-shadow: inset 5px 5px 10px #888;
+  box-shadow: inset 5px 5px 10px #888;
+}
+
 .proposals_container {
   margin: 0 auto;
   width: 1400px;
 }
 
 .projects_count {
-	margin-top: 50px;
-	margin-left: auto;
-	margin-right: auto;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #grade_buttons {
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 50px;
-	width: 600px;
-	height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 75px;
+  width: 600px;
+  height: 100px;
 }
 
 .grade_button {
-	float: left;
-	font-family: 'Montserrat', sans-serif;
-	border-radius: 5px;
-	text-align: center;
-	font-size: 24px;
-	width: 100px;
-	margin-right: 10px;
-	margin-left: 10px;
+  float: left;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 24px;
+  width: 100px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.grade_button.active {
+  -moz-box-shadow: inset 5px 5px 10px #888;
+  -webkit-box-shadow: inset 5px 5px 10px #888;
+  box-shadow: inset 5px 5px 10px #888;
 }
 
 #map {
@@ -102,40 +117,128 @@ body {
 }
 
 .projects-container ul {
-	list-style-type:none;
+  list-style-type:none;
 }
 
 .large-projects {
-	display: inline;
+  display: inline;
   list-style-type: none;
-	margin: 10px;
-	img {
-		padding-bottom: 20px;
-	}
+  margin: 10px;
+  img {
+    padding-bottom: 20px;
+  }
 }
 
 .medium-projects {
-	display: inline;
+  display: inline;
   list-style-type: none;
-	margin: 10px;
-	img {
-	  width: 110px;
-		padding-bottom: 20px;
-	}
+  margin: 10px;
+  img {
+    width: 110px;
+    padding-bottom: 20px;
+  }
 }
 
 .small-projects {
-	display: inline;
+  display: inline;
   list-style-type: none;
-	margin: 10px;
-	img {
-	  width: 60px;
-		padding-bottom: 20px;
-	}
+  margin: 10px;
+  img {
+    width: 60px;
+    padding-bottom: 20px;
+  }
 }
 
 .projects-count {
-    width: 50%;
-    margin: 20px auto;
-    text-align: center;
+  width: 50%;
+  margin: 20px auto;
+  text-align: center;
 }
+
+.subject {
+  float: left;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+  width: 250px;
+  margin-right: 10px;
+  margin-left: 16px;
+  margin-top: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#subject-buttons-container {
+  width: 1200px;
+  height: 50px;
+  margin: 0 auto;
+  float: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.sub-subjects-container {
+  width: 1200px;
+  height: 50px;
+  margin: 0 auto;
+  float: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.sub-subject {
+  float: left;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+  width: 250px;
+  margin-right: 10px;
+  margin-left: 16px;
+  margin-top: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.shrink {
+  padding-top: 0px;
+  height: 80px;
+}
+
+.nav {
+	width: 100%;
+}
+
+.pull-right {
+	padding-left: 80%;
+}
+
+.project-info {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  text-align: center;
+	display: none;
+  height: 140px;
+  width: 600px;
+  border-radius: 5px;
+  position: absolute;
+  left: 22.8%;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  background-color: whiteSmoke;
+  background-image: -moz-linear-gradient(top, white, #E6E6E6);
+  background-image: -ms-linear-gradient(top, white, #E6E6E6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#E6E6E6));
+  background-image: -webkit-linear-gradient(top, white, #E6E6E6);
+  background-image: -o-linear-gradient(top, white, #E6E6E6);
+  background-image: linear-gradient(top, white, #E6E6E6);
+  background-repeat: repeat-x;
+  p {
+  font-size: 18px;
+  line-height: 1;
+  }
+}
+

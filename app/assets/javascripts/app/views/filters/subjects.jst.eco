@@ -1,0 +1,53 @@
+<div id="subject-buttons-container">
+  <div class="btn well span3 subject" id="math-science-button" data-api-params="subject4=-4">Math and Science</div>
+  <div class="btn well span3 subject" id="music-arts-button" data-api-params="subject1=-1">Music and the Arts</div>
+  <div class="btn well span3 subject" id="literacy-language-button" data-api-params="subject6=-6">Literacy and Language</div>
+  <div class="btn well span3 subject" id="history-civics-button" data-api-params="subject3=-3">History and Civics</div>
+  <div class="btn well span3 subject" id="special-needs-button" data-api-params="subject7=-7">Special Needs</div>
+  <div class="btn well span3 subject" id="applied-learning-button" data-api-params="subject5=-5">Applied Learning</div>
+  <div class="btn well span3 subject" id="health-sports-button" data-api-params="subject2=-2">Health and Sports</div>
+</div>
+
+<div style="display: none" class ="sub-subjects-container" id="math-science-subjects">
+  <div class="btn well span3 sub-subject" id="Environmental Science" data-api-params="subject4=7">Environmental Science</div>
+  <div class="btn well span3 sub-subject" id="Mathematics" data-api-params="subject4=8">Mathematics</div>
+  <div class="btn well span3 sub-subject" id="Health and Life Sciences" data-api-params="subject4=4">Health and Life Science</div>
+  <div class="btn well span3 sub-subject" id="Applied Sciences" data-api-params="subject4=6">Applied Sciences</div>
+</div>
+
+<div style="display: none" class ="sub-subjects-container" id="music-art-subjects">
+  <div class="btn well span3 sub-subject" id="Performing Arts" data-api-params="subject1=1">Performing Arts</div>
+  <div class="btn well span3 sub-subject" id="Visual Arts" data-api-params="subject1=11">Visual Arts</div>
+  <div class="btn well span3 sub-subject" id="Music" data-api-params="subject1=12">Music</div>
+  </div>
+
+<div style="display: none" class ="sub-subjects-container" id="literacy-language-subjects">
+  <div class="btn well span3 sub-subject" id="Literacy" data-api-params="subject6=10">Literacy</div>
+  <div class="btn well span3 sub-subject" id="Literature and Writing" data-api-params="subject6=3">Literature and Writing</div>
+  <div class="btn well span3 sub-subject" id="Foreign Languages" data-api-params="subject6=22">Foreign Languages</div>
+  <div class="btn well span3 sub-subject" id="ESL" data-api-params="subject6=25">ESL</div>
+  </div>
+
+<div style="display: none" class ="sub-subjects-container" id="history-civics-subjects">
+  <div class="btn well span3 sub-subject" id="History and Geography" data-api-params="subject3=9">History and Geography</div>
+  <div class="btn well span3 sub-subject" id="Civics and Government" data-api-params="subject3=13">Civics and Government</div>
+  <div class="btn well span3 sub-subject" id="Economics" data-api-params="subject3=14">Economics</div>
+  <div class="btn well span3 sub-subject" id="Social Sciences" data-api-params="subject3=15">Social Sciences</div>
+  </div>
+
+<div style="display: none" class ="sub-subjects-container" id="applied-learning-subjects">
+  <div class="btn well span3 sub-subject" id="Early Development" data-api-params="subject5=18">Early Development</div>
+  <div class="btn well span3 sub-subject" id="Community Service" data-api-params="subject5=21">Community Service</div>
+  <div class="btn well span3 sub-subject" id="Character Education" data-api-params="subject5=26">Character Education</div>
+  <div class="btn well span3 sub-subject" id="College and Career Prep" data-api-params="subject5=16">College and Career Prep</div>
+  <div class="btn well span3 sub-subject" id="Extracurricular" data-api-params="subject5=17">Extracurricular</div>
+  <div class="btn well span3 sub-subject" id="Parent Involvement" data-api-params="subject5=20">Parent Involvement</div>
+  <div class="btn well span3 sub-subject" id="Other" data-api-params="subject5=19">Other</div>
+  </div>
+
+<div style="display: none" class ="sub-subjects-container" id="health-sports-subjects">
+  <div class="btn well span3 sub-subject" id="Sports" data-api-params="subject2=2">Sports</div>
+  <div class="btn well span3 sub-subject" id="Health and Wellness" data-api-params="subject2=27">Health and Wellness</div>
+  <div class="btn well span3 sub-subject" id="Nutrition" data-api-params="subject2=28">Nutrition</div>
+  <div class="btn well span3 sub-subject" id="Gym and Fitness" data-api-params="subject2=29">Gym and Fitness</div>
+</div>
