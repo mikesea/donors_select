@@ -178,6 +178,30 @@ body {
   margin-bottom: 25px;
 }
 
+.sub-subjects-container {
+  width: 1200px;
+  height: 50px;
+  margin: 0 auto;
+  float: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.sub-subject {
+  float: left;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+  width: 250px;
+  margin-right: 10px;
+  margin-left: 16px;
+  margin-top: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 .shrink {
   padding-top: 0px;
   height: 80px;

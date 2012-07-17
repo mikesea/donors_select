@@ -53,25 +53,25 @@ class Filterer extends Spine.Controller
 
   showMathSubjects: (e) ->
     $("#math-science-subjects").show()
-    $(".subject").hide()
+    $("#subject-buttons-container").hide()
     $("#subject-button").text("Math and Science")
     $("#subject-button").addClass("shrink")
 
   showMusicSubjects: (e) ->
     $("#music-art-subjects").show()
-    $(".subject").hide()
+    $("#subject-buttons-container").hide()
     $("#subject-button").text("Music and the Arts")
     $("#subject-button").addClass("shrink")
 
   showLiteracySubjects: (e) ->
     $("#literacy-language-subjects").show()
-    $(".subject").hide()
+    $("#subject-buttons-container").hide()
     $("#subject-button").text("Literacy and Language")
     $("#subject-button").addClass("shrink")
 
   showHistorySubjects: (e) ->
     $("#history-civics-subjects").show()
-    $(".subject").hide()
+    $("#subject-buttons-container").hide()
     $("#subject-button").text("History and Civics")
     $("#subject-button").addClass("shrink")
 
@@ -81,13 +81,13 @@ class Filterer extends Spine.Controller
 
   showAppliedLearningSubjects: (e) ->
     $("#applied-learning-subjects").show()
-    $(".subject").hide()
+    $("#subject-buttons-container").hide()
     $("#subject-button").text("Applied Learning")
     $("#subject-button").addClass("shrink")
 
   showHealthSubjects: (e) ->
     $("#health-sports-subjects").show()
-    $(".subject").hide()
+    $("#subject-buttons-container").hide()
     $("#subject-button").text("Health and Sports")
     $("#subject-button").addClass("shrink")
 
