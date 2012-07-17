@@ -23,12 +23,9 @@ class Filterer extends Spine.Controller
     @el.height(700)
     @filterActions.append @view('filters/states')
     $("#map").usmap click: (event, data) ->
-      $("path").attr "class", "state"
-      $("path").attr "fill", "#333"
-      $("rect").attr "fill", "#333"
-      $(event.originalEvent.target).attr "fill", "#FF0000"
-      $(event.originalEvent.target).attr "style", "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; cursor: pointer; "
-      $(event.originalEvent.target).attr "class", "active-state"
+      $('path[style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; cursor: pointer; "]').attr({class:"state", fill:"#00000", style: "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0; cursor: pointer; "})
+      $('rect[style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; cursor: pointer; "]').attr({fill: "#000000", style: "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0; cursor: pointer; "})
+      $(event.originalEvent.target).attr({fill: "#FF0000", style: "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; cursor: pointer; ", class: "active-state"})
       console.log $(event.originalEvent.target)
       $("#state-button").text "State: "+data.name
 

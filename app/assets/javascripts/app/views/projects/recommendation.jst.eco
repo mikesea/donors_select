@@ -1,0 +1,10 @@
+<div class="closer">
+  <h1 class="close-button">x</h1>
+</div>
+<div class="recommendation">
+    <h2>Based on your criteria, we recommend: </h2>
+    <a href="<%= @project.proposalURL %>"><img class="project-image" src="<%= @project.imageURL %>"></img></a>
+    <h2><%= @project.title.html() %></h2>
+    <p><%=  @project.description.html() %></p>
+    <a class="btn btn-large btn-info" href="<%= @project.proposalURL %>">Donate now!</a>
+</div>
