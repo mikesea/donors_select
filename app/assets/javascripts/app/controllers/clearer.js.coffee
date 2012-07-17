@@ -15,6 +15,7 @@ class Clearer extends Spine.Controller
     $(".grade_button").removeClass("active")
     $("#state-button").text("State")
     $("#subject-button").text("Subject")
+    $("#subject-button").removeClass("shrink")
     $("#grade-button").text("Grade")
     $("path").attr "class", "state"
     $("path").attr "fill", "#333"

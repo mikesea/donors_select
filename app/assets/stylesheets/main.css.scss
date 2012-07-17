@@ -9,6 +9,7 @@ $plain: #F5F6FA;
 
 body {
   background-color: $plain;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .navbar {
@@ -178,6 +179,30 @@ body {
   margin-bottom: 25px;
 }
 
+.sub-subjects-container {
+  width: 1200px;
+  height: 50px;
+  margin: 0 auto;
+  float: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.sub-subject {
+  float: left;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+  width: 250px;
+  margin-right: 10px;
+  margin-left: 16px;
+  margin-top: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 .shrink {
   padding-top: 0px;
   height: 80px;
@@ -190,3 +215,30 @@ body {
 .pull-right {
 	padding-left: 80%;
 }
+
+.project-info {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  text-align: center;
+	display: none;
+  height: 140px;
+  width: 600px;
+  border-radius: 5px;
+  position: absolute;
+  left: 22.8%;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  background-color: whiteSmoke;
+  background-image: -moz-linear-gradient(top, white, #E6E6E6);
+  background-image: -ms-linear-gradient(top, white, #E6E6E6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#E6E6E6));
+  background-image: -webkit-linear-gradient(top, white, #E6E6E6);
+  background-image: -o-linear-gradient(top, white, #E6E6E6);
+  background-image: linear-gradient(top, white, #E6E6E6);
+  background-repeat: repeat-x;
+  p {
+  font-size: 18px;
+  line-height: 1;
+  }
+}
+
