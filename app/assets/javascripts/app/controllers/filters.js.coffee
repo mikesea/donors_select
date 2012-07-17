@@ -34,7 +34,7 @@ class Filterer extends Spine.Controller
       $("#state-button").text(data.name)
 
   filterBySubject: (e) ->
-    @el.height(200)
+    @el.height(230)
     @filterActions.empty()
     @filterActions.append @view('filters/subjects')
 
