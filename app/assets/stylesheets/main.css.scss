@@ -217,11 +217,13 @@ body {
 }
 
 .project-info {
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
   text-align: center;
 	display: none;
-  height: 140px;
   width: 600px;
   border-radius: 5px;
   position: absolute;
@@ -239,6 +241,9 @@ body {
   p {
   font-size: 18px;
   line-height: 1;
+  }
+  .clear {
+    clear: both;
   }
 }
 
