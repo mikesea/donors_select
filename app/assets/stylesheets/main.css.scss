@@ -53,10 +53,12 @@ body {
 .filter_button {
   font-family: 'Montserrat', sans-serif;
   background-color: $plain;
+  height: 60px;
+  padding-top: 20px;
   float: left;
   border-radius: 5px;
   text-align: center;
-  font-size: 24px;
+  font-size: 36px;
   margin-left: 35px;
   margin-right: 35px;
 }
@@ -65,6 +67,12 @@ body {
   box-shadow: 0 0 10px #000000;
   -webkit-box-shadow: 0 0 10px #000000;
   -moz-box-shadow: 0 0 10px #000000;
+}
+
+.filter_button.active {
+	-moz-box-shadow: inset 5px 5px 10px #888;
+	-webkit-box-shadow: inset 5px 5px 10px #888;
+	box-shadow: inset 5px 5px 10px #888;
 }
 
 .proposals_container {
@@ -79,11 +87,11 @@ body {
 }
 
 #grade_buttons {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  width: 600px;
-  height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 75px;
+	width: 600px;
+	height: 100px;
 }
 
 .grade_button {
@@ -95,6 +103,12 @@ body {
   width: 100px;
   margin-right: 10px;
   margin-left: 10px;
+}
+
+.grade_button.active {
+	-moz-box-shadow: inset 5px 5px 10px #888;
+	-webkit-box-shadow: inset 5px 5px 10px #888;
+	box-shadow: inset 5px 5px 10px #888;
 }
 
 #map {

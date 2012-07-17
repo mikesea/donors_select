@@ -21,24 +21,32 @@ class Filterer extends Spine.Controller
     super
 
   filterByState: (e) ->
+    $(".filter_button").removeClass("active")
+    $("#state-button").addClass("active")
     @filterActions.empty()
     @el.height(700)
     @filterActions.append @view('filters/states')
     $("#map").usmap click: (event, data) ->
-      $("path").attr("class", "state")
-      $("path").attr("fill", "#333")
-      $(event.originalEvent.target).attr("fill", "#FF0000")
-      $(event.originalEvent.target).attr("style", "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; cursor: pointer; ")
-      $(event.originalEvent.target).attr("class","active-state");
-      console.log($(event.originalEvent.target))
-      $("#state-button").text(data.name)
+      $("path").attr "class", "state"
+      $("path").attr "fill", "#333"
+      $("rect").attr "fill", "#333"
+      $(event.originalEvent.target).attr "fill", "#FF0000"
+      $(event.originalEvent.target).attr "style", "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; cursor: pointer; "
+      $(event.originalEvent.target).attr "class", "active-state"
+      console.log $(event.originalEvent.target)
+      $("#state-button").text "State: "+data.name
 
   filterBySubject: (e) ->
+    $(".filter_button").removeClass("active")
+    $("#subject-button").addClass("active")
+
     @el.height(230)
     @filterActions.empty()
     @filterActions.append @view('filters/subjects')
 
   filterByGrade: (e) ->
+    $(".filter_button").removeClass("active")
+    $("#grade-button").addClass("active")
     @filterActions.empty()
     @el.height(200)
     @filterActions.append @view('filters/grades')
