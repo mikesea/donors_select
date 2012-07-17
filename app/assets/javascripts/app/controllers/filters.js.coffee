@@ -19,6 +19,7 @@ class Filterer extends Spine.Controller
     @filterActions.append @view('filters/states')
     $("#map").usmap click: (event, data) ->
       $("path").attr("class", "state")
+      $("path").attr("fill", "#333")
       $(event.originalEvent.target).attr("fill", "#FF0000")
       $(event.originalEvent.target).attr("style", "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; cursor: pointer; ")
       $(event.originalEvent.target).attr("class","active-state");
