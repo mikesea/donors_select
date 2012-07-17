@@ -4,11 +4,11 @@ class Project
   def self.test_data
 
     counter_params = [
-                       "&index=51&max=50",
-                       "&index=101&max=50",
+                       "&index=51&max=0",
+                       "&index=101&max=0",
                      ]
 
-    first_fifty = retrieve_data('http://api.donorschoose.org/common/json_feed.html?state=WA&max=50')
+    first_fifty = retrieve_data('http://api.donorschoose.org/common/json_feed.html?state=WA&max=10')
     first_fifty = JSON.parse(first_fifty)
 
     counter_params.each do |param|
