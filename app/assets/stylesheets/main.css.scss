@@ -17,15 +17,29 @@ body {
 }
 
 .navbar-inner {
+  padding: 0;
   border-radius: 0;
   min-height: 40px;
   background-color: $lightBlue;
   background-image: none;
 }
 
-#logo {
-  color: $plain;
+#logo-nav {
+  background-color: $plain;
+  background-image: url("/assets/giveheart.png");
+  background-repeat:no-repeat;
+  background-position: 160px 10px;
+  padding: 15px;
+  height: 40px;
+  li {
+    list-style-type: none;
+  }
+  h2 {
+    color: black;
+  }
+  #logo {
   font-family: 'Montserrat', sans-serif;
+  }
 }
 
 .project-box {
@@ -228,6 +242,7 @@ body {
 }
 
 .pull-right {
+  vertical-align: bottom;
 	padding-left: 80%;
 }
 
