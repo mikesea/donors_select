@@ -16,6 +16,7 @@ class Filterer extends Spine.Controller
     "click #special-needs-button" : "showSpecialNeeds"
     "click #applied-learning-button" : "showAppliedLearningSubjects"
     "click #health-sports-button" : "showHealthSubjects"
+    "click .sub-subject" : "changeButtonText"
 
   constructor: ->
     super
@@ -90,6 +91,10 @@ class Filterer extends Spine.Controller
     $("#subject-buttons-container").hide()
     $("#subject-button").text("Health and Sports")
     $("#subject-button").addClass("shrink")
+
+  changeButtonText: (e) ->
+    sub_subject_button = $(e.target)
+    $("#subject-button").text(sub_subject_button.attr('id'))
 
   gradeList: (e) ->
     $(".grade_button").removeClass("active")
