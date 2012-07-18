@@ -8,7 +8,8 @@ gem 'thin'
 gem 'redis'
 gem 'spine-rails'
 gem 'eco'
-gem 'donors_choose', git: 'https://github.com/mikesea/donors_choose.git'
+gem 'resque'
+gem 'pusher'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
