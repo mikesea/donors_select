@@ -24,17 +24,20 @@ class Filterer extends Spine.Controller
     priorstate = ""
     $("#map").usmap click: (event, data) ->
       clearPriorState(priorstate)
-      data.hitArea.attr({fill:"#ff0000", opacity: 1})
-      if data.labelHitArea
-        data.labelHitArea.attr({fill:"#ff0000", opacity: 1})
-      priorstate = data
+      fillStateAreas(data)
       $("#state-button").text "State: "+data.name
+      priorstate = data
 
   clearPriorState = (priorstate) ->
     if priorstate
       priorstate.hitArea.attr({fill:"#333", opacity: 0})
       if priorstate.labelHitArea
         priorstate.labelHitArea.attr({fill:"#333", opacity: 0})
+
+  fillStateAreas = (state) ->
+    state.hitArea.attr({fill:"#ff0000", opacity: 1})
+    if state.labelHitArea
+      state.labelHitArea.attr({fill:"#ff0000", opacity: 1})
 
   filterBySubject: (e) ->
     $(".filter_button").removeClass("active")
