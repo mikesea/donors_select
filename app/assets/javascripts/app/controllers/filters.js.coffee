@@ -41,9 +41,9 @@ class Filterer extends Spine.Controller
 
   filterBySubject: (e) ->
     $(".filter_button").removeClass("active")
+    $(".sub-subjects-container").hide()
     $("#subject-button").addClass("active")
-
-    @el.height(250)
+    @el.height(275)
     @filterActions.empty()
     @filterActions.append @view('filters/subjects')
 
@@ -55,17 +55,25 @@ class Filterer extends Spine.Controller
     @filterActions.append @view('filters/grades')
 
   showSubSubjects: (e) ->
-    $("#subject-button").removeClass("shrink")
+    @el.height(450)
+    $(".subject").removeClass("active")
+    $(".special-needs").removeClass("active")
+    $(".sub-subjects-container").hide()
     subject_button = $(e.target)
-    $(".subject").hide()
-    $(".special-needs").hide()
-    subject_button.next().show()
+    subject_button.addClass("active")
+    subject_buttons = subject_button.next()
+    subject_buttons.insertAfter("#subject-buttons-container")
+    subject_buttons.show()
     $("#subject-button").text(subject_button.attr('id'))
     $("#subject-button").addClass("shrink")
 
   showSpecialNeeds: (e) ->
+    @el.height(275)
     $("#subject-button").removeClass("shrink")
     $("#subject-button").text("Special Needs")
+    $(".sub-subjects-container").hide()
+    $(".subject").removeClass("active")
+    $(e.target).addClass("active")
 
   changeButtonText: (e) ->
     $(".sub-subject").removeClass("active")
