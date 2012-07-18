@@ -46,11 +46,18 @@ class Filterer extends Spine.Controller
     state = $("#state-button").attr('data-api-params')
     subject = $("#subject-button").attr('data-api-params')
     grade = $("#grade-button").attr('data-api-params')
-    $.ajax(
+    $.ajax
       type: 'GET',
       url: 'projects.json',
       data: state + "&" + subject + "&" + grade
-      )
+      success: (projects) ->
+        Project.deleteAll()
+        $(".projects-list").empty()
+        for project in projects
+          Project.create(project)
+      error: ->
+        $(".projects-list").empty()
+        $(".projects-list").append "<h1>LOADING!!!</h1>"
 
   filterBySubject: (e) ->
     $(".filter_button").removeClass("active")
