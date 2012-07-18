@@ -5,4 +5,3 @@ class ProjectsController < ApplicationController
     @projects = Project.find_by(params[:filters])
   end
 end
-
