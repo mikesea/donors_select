@@ -17,15 +17,29 @@ body {
 }
 
 .navbar-inner {
+  padding: 0;
   border-radius: 0;
   min-height: 40px;
   background-color: $lightBlue;
   background-image: none;
 }
 
-#logo {
-  color: $plain;
+#logo-nav {
+  background-color: $plain;
+  background-image: url("/assets/giveheart.png");
+  background-repeat:no-repeat;
+  background-position: 160px 10px;
+  padding: 15px;
+  height: 40px;
+  li {
+    list-style-type: none;
+  }
+  h2 {
+    color: black;
+  }
+  #logo {
   font-family: 'Montserrat', sans-serif;
+  }
 }
 
 .project-box {
@@ -170,6 +184,21 @@ body {
   padding-bottom: 15px;
 }
 
+.special-needs {
+  float: left;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+  width: 250px;
+  margin-right: 10px;
+  margin-left: 16px;
+  margin-top: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 #subject-buttons-container {
   width: 1200px;
   height: 50px;
@@ -213,15 +242,18 @@ body {
 }
 
 .pull-right {
+  vertical-align: bottom;
 	padding-left: 80%;
 }
 
 .project-info {
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
   text-align: center;
 	display: none;
-  height: 140px;
   width: 600px;
   border-radius: 5px;
   position: absolute;
@@ -240,5 +272,58 @@ body {
   font-size: 18px;
   line-height: 1;
   }
+  .clear {
+    clear: both;
+  }
+}
+
+.recommendation {
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  height: 385px;
+  width: 600px;
+  border-radius: 5px;
+  position: absolute;
+  left: 474px;
+  top: 230px;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  background-color: whiteSmoke;
+  background-image: -moz-linear-gradient(top, white, #E6E6E6);
+  background-image: -ms-linear-gradient(top, white, #E6E6E6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#E6E6E6));
+  background-image: -webkit-linear-gradient(top, white, #E6E6E6);
+  background-image: -o-linear-gradient(top, white, #E6E6E6);
+  background-image: linear-gradient(top, white, #E6E6E6);
+  background-repeat: repeat-x;
+  p {
+  font-size: 18px;
+  line-height: 1;
+  }
+}
+
+.closer {
+  text-align: right;
+  padding-right: 7px;
+  position:absolute;
+  left: 440px;
+  top: 200px;
+  border-radius: 5px;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  background-color: gray;
+  background-image: -moz-linear-gradient(top, lightgray, darkgray);
+  background-image: -ms-linear-gradient(top, lightgray, darkgray);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(lightgray), to(darkgray));
+  background-image: -webkit-linear-gradient(top, lightgray, darkgray);
+  background-image: -o-linear-gradient(top, lightgray, darkgray);
+  background-image: linear-gradient(top, lightgray, darkgray);
+  background-repeat: repeat-x;
+  width: 700px;
+  height: 485px;
+}
+
+.close-button {
+  cursor: pointer;
 }
 
