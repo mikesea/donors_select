@@ -1,7 +1,8 @@
 <div class="medium-projects">
-  <img src="<%= @project.imageURL %>"></img>
+  <a href="<%= @project.proposalURL %>"><img src="<%= @project.imageURL %>"></img></a>
 </div>
 <div class="project-info">
   <h2><%= unescape(@project.title) %></h1>
   <p><%= unescape(@project.description) %></p>
+  <br class="clear" />
 </div>

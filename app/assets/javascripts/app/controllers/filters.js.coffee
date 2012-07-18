@@ -9,13 +9,8 @@ class Filterer extends Spine.Controller
     "click #subject-button" : "filterBySubject"
     "click #grade-button" : "filterByGrade"
     "click .grade_button" : "gradeList"
-    "click #math-science-button" : "showMathSubjects"
-    "click #music-arts-button" : "showMusicSubjects"
-    "click #literacy-language-button" : "showLiteracySubjects"
-    "click #history-civics-button" : "showHistorySubjects"
-    "click #special-needs-button" : "showSpecialNeeds"
-    "click #applied-learning-button" : "showAppliedLearningSubjects"
-    "click #health-sports-button" : "showHealthSubjects"
+    "click .special-needs" : "showSpecialNeeds"
+    "click .subject" : "showSubSubjects"
     "click .sub-subject" : "changeButtonText"
 
   constructor: ->
@@ -24,18 +19,25 @@ class Filterer extends Spine.Controller
   filterByState: (e) ->
     $(".filter_button").removeClass("active")
     $("#state-button").addClass("active")
-    @filterActions.empty()
     @el.height(700)
-    @filterActions.append @view('filters/states')
+    @filterActions.empty().append @view('filters/states')
+    priorstate = ""
     $("#map").usmap click: (event, data) ->
-      $("path").attr "class", "state"
-      $("path").attr "fill", "#333"
-      $("rect").attr "fill", "#333"
-      $(event.originalEvent.target).attr "fill", "#FF0000"
-      $(event.originalEvent.target).attr "style", "-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; cursor: pointer; "
-      $(event.originalEvent.target).attr "class", "active-state"
-      console.log $(event.originalEvent.target)
+      clearPriorState(priorstate)
+      fillStateAreas(data)
       $("#state-button").text "State: "+data.name
+      priorstate = data
+
+  clearPriorState = (priorstate) ->
+    if priorstate
+      priorstate.hitArea.attr({fill:"#333", opacity: 0})
+      if priorstate.labelHitArea
+        priorstate.labelHitArea.attr({fill:"#333", opacity: 0})
+
+  fillStateAreas = (state) ->
+    state.hitArea.attr({fill:"#ff0000", opacity: 1})
+    if state.labelHitArea
+      state.labelHitArea.attr({fill:"#ff0000", opacity: 1})
 
   filterBySubject: (e) ->
     $(".filter_button").removeClass("active")
@@ -52,48 +54,23 @@ class Filterer extends Spine.Controller
     @el.height(200)
     @filterActions.append @view('filters/grades')
 
-  showMathSubjects: (e) ->
-    $("#math-science-subjects").show()
-    $("#subject-buttons-container").hide()
-    $("#subject-button").text("Math and Science")
-    $("#subject-button").addClass("shrink")
-
-  showMusicSubjects: (e) ->
-    $("#music-art-subjects").show()
-    $("#subject-buttons-container").hide()
-    $("#subject-button").text("Music and the Arts")
-    $("#subject-button").addClass("shrink")
-
-  showLiteracySubjects: (e) ->
-    $("#literacy-language-subjects").show()
-    $("#subject-buttons-container").hide()
-    $("#subject-button").text("Literacy and Language")
-    $("#subject-button").addClass("shrink")
-
-  showHistorySubjects: (e) ->
-    $("#history-civics-subjects").show()
-    $("#subject-buttons-container").hide()
-    $("#subject-button").text("History and Civics")
+  showSubSubjects: (e) ->
+    $("#subject-button").removeClass("shrink")
+    subject_button = $(e.target)
+    $(".subject").hide()
+    $(".special-needs").hide()
+    subject_button.next().show()
+    $("#subject-button").text(subject_button.attr('id'))
     $("#subject-button").addClass("shrink")
 
   showSpecialNeeds: (e) ->
     $("#subject-button").removeClass("shrink")
     $("#subject-button").text("Special Needs")
 
-  showAppliedLearningSubjects: (e) ->
-    $("#applied-learning-subjects").show()
-    $("#subject-buttons-container").hide()
-    $("#subject-button").text("Applied Learning")
-    $("#subject-button").addClass("shrink")
-
-  showHealthSubjects: (e) ->
-    $("#health-sports-subjects").show()
-    $("#subject-buttons-container").hide()
-    $("#subject-button").text("Health and Sports")
-    $("#subject-button").addClass("shrink")
-
   changeButtonText: (e) ->
+    $(".sub-subject").removeClass("active")
     sub_subject_button = $(e.target)
+    sub_subject_button.addClass("active")
     $("#subject-button").text(sub_subject_button.attr('id'))
 
   gradeList: (e) ->
