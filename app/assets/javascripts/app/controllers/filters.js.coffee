@@ -22,12 +22,13 @@ class Filterer extends Spine.Controller
     @el.height(700)
     @filterActions.empty().append @view('filters/states')
     priorstate = ""
-    $("#map").usmap click: (event, data) ->
+    $("#map").usmap click: (event, data) =>
       clearPriorState(priorstate)
       fillStateAreas(data)
       $("#state-button").text "State: "+data.name
+      $("#state-button").attr({'data-api-params': 'filters[]=state='+data.name})
       priorstate = data
-      submitState(data)
+      @submitAPIRequest()
 
   clearPriorState = (priorstate) ->
     if priorstate
@@ -40,17 +41,20 @@ class Filterer extends Spine.Controller
     if state.labelHitArea
       state.labelHitArea.attr({fill:"#ff0000", opacity: 1})
 
-  submitState = (state) ->
+  submitAPIRequest: ->
+    console.log("submitAPIRequest function")
+    state = $("#state-button").attr('data-api-params')
+    subject = $("#subject-button").attr('data-api-params')
+    grade = $("#grade-button").attr('data-api-params')
     $.ajax(
       type: 'GET',
       url: 'projects.json',
-      data: "filters[]=state=#{state.name}"
+      data: state + "&" + subject + "&" + grade
       )
 
   filterBySubject: (e) ->
     $(".filter_button").removeClass("active")
     $("#subject-button").addClass("active")
-
     @el.height(250)
     @filterActions.empty()
     @filterActions.append @view('filters/subjects')
@@ -61,6 +65,14 @@ class Filterer extends Spine.Controller
     @filterActions.empty()
     @el.height(200)
     @filterActions.append @view('filters/grades')
+
+  gradeList: (e) ->
+    $(".grade_button").removeClass("active")
+    grade_button = $(e.target)
+    grade_button.addClass("active")
+    $("#grade-button").text(grade_button.attr('id'))
+    $("#grade-button").attr({'data-api-params': grade_button.attr('data-api-params')})
+    @submitAPIRequest()
 
   showSubSubjects: (e) ->
     $("#subject-button").removeClass("shrink")
@@ -82,12 +94,5 @@ class Filterer extends Spine.Controller
     if sub_subject_button.hasClass("short")
       $("#subject-button").removeClass("shrink")
     $("#subject-button").text(sub_subject_button.attr('id'))
-
-  gradeList: (e) ->
-    $(".grade_button").removeClass("active")
-    grade_button = $(e.target)
-    grade_button.addClass("active")
-    $("#grade-button").text(grade_button.attr('id'))
-    console.log(grade_button.attr('id'))
 
 window.Filterer = Filterer
