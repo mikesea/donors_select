@@ -27,6 +27,7 @@ class Filterer extends Spine.Controller
       fillStateAreas(data)
       $("#state-button").text "State: "+data.name
       priorstate = data
+      submitState(data)
 
   clearPriorState = (priorstate) ->
     if priorstate
@@ -38,6 +39,13 @@ class Filterer extends Spine.Controller
     state.hitArea.attr({fill:"#ff0000", opacity: 1})
     if state.labelHitArea
       state.labelHitArea.attr({fill:"#ff0000", opacity: 1})
+
+  submitState = (state) ->
+    $.ajax(
+      type: 'GET',
+      url: 'projects.json',
+      data: "filters[]=state=#{state.name}"
+      )
 
   filterBySubject: (e) ->
     $(".filter_button").removeClass("active")
