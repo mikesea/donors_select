@@ -9,6 +9,7 @@ gem 'redis'
 gem 'spine-rails'
 gem 'eco'
 gem 'resque'
+gem 'pusher'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
