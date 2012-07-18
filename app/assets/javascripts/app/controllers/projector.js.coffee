@@ -12,18 +12,22 @@ class Projector extends Spine.Controller
 
   constructor: ->
     super
-    console.log @el
-    Project.bind "refresh", @addAll
-    Project.bind "refresh", @checkRecommendation
-    ProjectsCount.bind "refresh", @updateCount
+    Project.bind 'create', @addLarge
+    Project.bind 'refresh', @addAll
     Project.fetch()
-    ProjectsCount.fetch()
+    # Project.bind "refresh", @addAll
+    # Project.bind "refresh", @checkRecommendation
+    # ProjectsCount.bind "refresh", @updateCount
+    # ProjectsCount.fetch()
 
   showInfo: (e) ->
     $(e.target).first().parent().parent().next().show()
 
   hideInfo: (e) ->
     $(".project-info").hide()
+
+  addOne: (project) =>
+    @projects.append "<h1>#{project.title}</h1>"
 
   addAll: =>
     @projects.empty()
@@ -39,13 +43,13 @@ class Projector extends Spine.Controller
     if Project.all().length <= 20
       @displayRecommendation(Project.first())
 
-  addSmall: (project) ->
+  addSmall: (project) =>
     @projects.append @smallTemplate(project)
 
-  addMedium: (project) ->
+  addMedium: (project) =>
     @projects.append @mediumTemplate(project)
 
-  addLarge: (project) ->
+  addLarge: (project) =>
     @projects.append @largeTemplate(project)
 
   displayRecommendation: (project) ->
