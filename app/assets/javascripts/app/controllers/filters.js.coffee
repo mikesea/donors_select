@@ -42,7 +42,6 @@ class Filterer extends Spine.Controller
       state.labelHitArea.attr({fill:"#ff0000", opacity: 1})
 
   submitAPIRequest: ->
-    console.log("submitAPIRequest function")
     state = $("#state-button").attr('data-api-params')
     subject = $("#subject-button").attr('data-api-params')
     grade = $("#grade-button").attr('data-api-params')
