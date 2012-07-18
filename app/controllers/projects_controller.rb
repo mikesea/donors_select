@@ -2,8 +2,7 @@ class ProjectsController < ApplicationController
   protect_from_forgery
 
   def index
-    @data = Project.test_data
-    @projects = @data["proposals"]
+    @projects = Project.find_by(params[:filters])
   end
 end
 
