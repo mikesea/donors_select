@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
-  protect_from_forgery
 
   def index
-    @projects = Project.find_by(params[:filters])
+    @projects = Project.find_by(params[:filters], cookies.signed[:token])
   end
 end
