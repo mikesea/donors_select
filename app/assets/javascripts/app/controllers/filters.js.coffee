@@ -96,15 +96,19 @@ class Filterer extends Spine.Controller
     sub_subject_buttons = $("div [id='#{sub_subject} subjects']")
     sub_subject_buttons.show()
     $("#subject-button").text(subject_button.attr('id'))
+    $("#subject-button").attr({'data-api-params': subject_button.attr('data-api-params')})
     $("#subject-button").addClass("shrink")
+    @submitAPIRequest()
 
   showSpecialNeeds: (e) ->
     @el.height(275)
     $("#subject-button").removeClass("shrink")
     $("#subject-button").text("Special Needs")
+    $("#subject-button").attr({'data-api-params': $(e.target).attr('data-api-params')})
     $(".sub-subjects-container").hide()
     $(".subject").removeClass("active")
     $(e.target).addClass("active")
+    @submitAPIRequest()
 
   changeButtonText: (e) ->
     $(".sub-subject").removeClass("active")
@@ -115,12 +119,7 @@ class Filterer extends Spine.Controller
     else
       $("#subject-button").addClass("shrink")
     $("#subject-button").text(sub_subject_button.attr('id'))
-
-  gradeList: (e) ->
-    $(".grade_button").removeClass("active")
-    grade_button = $(e.target)
-    grade_button.addClass("active")
-    $("#grade-button").text(grade_button.attr('id'))
-    console.log(grade_button.attr('id'))
+    $("#subject-button").attr({'data-api-params': sub_subject_button.attr('data-api-params')})
+    @submitAPIRequest()
 
 window.Filterer = Filterer
