@@ -70,6 +70,18 @@ body {
 }
 
 /* Buttons */
+.filter_clearer {
+  float: right;
+  padding-top: 28px;
+  margin-top: -62px;
+}
+
+#clear-filters {
+  width: 918px;
+  border-radius: 10px;
+  color: #686868;
+}
+
 #filter_buttons {
   padding-top: 50px;
   height: 130px;

@@ -15,7 +15,7 @@ class Clearer extends Spine.Controller
     $(".grade_button").removeClass("active")
     $("#state-button .state_text").text("State")
     $("#grade-button .grade_text").text("Grade")
-    $("#subject-button").text("Subject")
+    $("#subject-button .subject_text").text("Subject")
     $("#subject-button").removeClass("shrink")
     $("#state-button").attr({'data-api-params':""})
     $("#subject-button").attr({'data-api-params':""})
