@@ -24,6 +24,7 @@ class Project
 
   def self.build_uri(params=nil)
     params = [] unless params
+    params << "max=50"
     params << "APIKey=#{API_KEY}"
     BASE_URI + "?" + params.join("&")
   end
