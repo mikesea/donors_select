@@ -1,8 +1,8 @@
 <div class="large-projects"></a>
-  <a href="<%= @project.proposalURL %>"><img src="<%= @project.imageURL %>"></img></a>
+  <a href="<%= @project.proposalURL %>"><img class="project-image" src="<%= @project.imageURL %>"></img></a>
 </div>
 <div class="project-info">
-  <h2><%= unescape(@project.title) %></h1>
-  <p><%= unescape(@project.description) %></p>
+  <h2><%= @project.title %></h2>
+  <p><%= @project.description %></p>
   <br class="clear" />
 </div>
