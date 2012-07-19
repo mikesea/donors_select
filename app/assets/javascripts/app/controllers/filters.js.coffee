@@ -37,9 +37,9 @@ class Filterer extends Spine.Controller
         priorstate.labelHitArea.attr({fill:"#333", opacity: 0})
 
   fillStateAreas = (state) ->
-    state.hitArea.attr({fill:"#ff0000", opacity: 1})
+    state.hitArea.attr({fill:"#FFB71F", opacity: 1})
     if state.labelHitArea
-      state.labelHitArea.attr({fill:"#ff0000", opacity: 1})
+      state.labelHitArea.attr({fill:"#FFB71F", opacity: 1})
 
   submitAPIRequest: ->
     state = $("#state-button").attr('data-api-params')
