@@ -23,12 +23,17 @@ class Filterer extends Spine.Controller
     @filterActions.empty().append @view('filters/states')
     priorstate = ""
     $("#map").usmap click: (event, data) =>
-      clearPriorState(priorstate)
-      fillStateAreas(data)
-      $("#state-button .state_text").text "State: "+data.name
-      $("#state-button").attr({'data-api-params': 'filters[]=state='+data.name})
-      priorstate = data
-      @submitAPIRequest()
+      if priorstate.name == data.name
+        data.hitArea.attr({fill:"#333", opacity: 0})
+        $("#state-button").attr({'data-api-params':""})
+        $("#state-button .state_text").text("State")
+      else 
+        clearPriorState(priorstate)
+        fillStateAreas(data)
+        $("#state-button .state_text").text "State: "+data.name
+        $("#state-button").attr({'data-api-params': 'filters[]=state='+data.name})
+        priorstate = data
+        @submitAPIRequest()
 
   clearPriorState = (priorstate) ->
     if priorstate
