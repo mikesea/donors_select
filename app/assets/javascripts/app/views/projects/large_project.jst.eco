@@ -1,5 +1,5 @@
 <div class="large-projects"></a>
-  <a href="<%= @project.proposalURL %>"><img class="project-image" src="<%= @project.imageURL %>"></img></a>
+  <img class="project-image" src="<%= @project.imageURL %>"></img>
 </div>
 <div class="project-info">
   <h3><%= @project.title %></h3>
