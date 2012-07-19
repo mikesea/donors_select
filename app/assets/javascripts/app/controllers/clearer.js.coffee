@@ -22,6 +22,37 @@ class Clearer extends Spine.Controller
     $("#grade-button").attr({'data-api-params':""})
     $("path").attr "class", "state"
     $("path").attr "fill", "#333"
+    $(".filter-actions").empty()
+    $("#filter_buttons").height(130)
+    @submitAPIRequest()
+
+  submitAPIRequest: ->
+    state = $("#state-button").attr('data-api-params')
+    subject = $("#subject-button").attr('data-api-params')
+    grade = $("#grade-button").attr('data-api-params')
+    $.ajax
+      type: 'get',
+      url: 'projects.json',
+      data: state + "&" + subject + "&" + grade
+      success: (projects) ->
+        Project.deleteAll()
+        $(".projects-list").empty()
+        for project in projects
+          Project.create(project, {ajax: false})
+
+    @loading()
+
+    $.ajax
+      type: 'get',
+      url: 'projects_counts.json',
+      data: state + "&" + subject + "&" + grade
+      success: (count) ->
+        ProjectsCount.deleteAll()
+        ProjectsCount.create(count, {ajax: false})
+
+  loading: ->
+    $(".projects-list").empty()
+    $(".projects-list").append "<h1>Loading!</h1>"
     
 
 window.Clearer = Clearer
