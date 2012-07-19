@@ -70,6 +70,21 @@ body {
 }
 
 /* Buttons */
+.filter_clearer {
+  float: left;
+  padding-top: 27px;
+  margin-top: -167px;
+}
+
+#clear-filters {
+  width: 711px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  color: #686868;
+}
+
 #filter_buttons {
   padding-top: 50px;
   height: 130px;
@@ -300,7 +315,7 @@ body {
 }
 
 .projects-count {
-  padding-top: 5px;
+  padding-bottom: 20px;
   margin: -90px auto;
   text-align: center;
   vertical-align: top;
