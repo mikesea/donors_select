@@ -27,6 +27,7 @@ class Filterer extends Spine.Controller
         data.hitArea.attr({fill:"#333", opacity: 0})
         $("#state-button").attr({'data-api-params':""})
         $("#state-button .state_text").text("State")
+        priorstate = ""
       else 
         clearPriorState(priorstate)
         fillStateAreas(data)
