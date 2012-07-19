@@ -211,15 +211,6 @@ body {
   height: 80px;
 }
 
-.projects-container {
-  margin-top: -110px;
-}
-.projects-count {
-  padding-top: 5px;
-  margin: -75px auto;
-  text-align: center;
-}
-
 /* This formats the patterned background behind the projects grid. */
 .main-background {
   height: 100%;
@@ -246,6 +237,69 @@ body {
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2);
   background: #F0F0F0;
+}
+
+.container {
+  width: 1140px;
+}
+
+.proj-list-wrap {
+  float: left;
+  width: 732px;
+}
+
+.projects-container {
+}
+
+.project-spotlight {
+  -webkit-border-top-right-radius: 9px;
+  -moz-border-radius-topright: 9px;
+  border-top-right-radius: 9px;
+  -webkit-border-bottom-right-radius: 9px;
+  -moz-border-radius-bottomright: 9px;
+  border-bottom-right-radius: 9px;
+  margin-top: -120px;
+  float: left;
+  width: 400px;
+  background: darkgray;
+  height: 364px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  .test {
+    background: $plain;
+    margin-top: 17px;
+    margin-right: 17px;
+    height: 330px;
+    -webkit-border-top-right-radius: 9px;
+    -moz-border-radius-topright: 9px;
+    border-top-right-radius: 9px;
+    -webkit-border-bottom-right-radius: 9px;
+    -moz-border-radius-bottomright: 9px;
+    border-bottom-right-radius: 9px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  }
+}
+
+.projects-count {
+  padding-top: 5px;
+  margin: -90px auto;
+  text-align: center;
+  vertical-align: top;
+}
+
+/* This formats the project images - grayscale */
+.project-image {
+  filter: url('/assets/filters.svg#grayscale'); /* Firefox 3.5+ */
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Google Chrome & Safari 6+ */
+}
+
+.project-image:hover {
+    filter: none;
+    -webkit-filter: grayscale(0);
 }
 
 /* These change the formatting of the projects grid based on number of projects. */
@@ -280,85 +334,22 @@ body {
 }
 
 /* Javascript boxes with project details */
+
 .project-info {
-  padding-left: 10px;
-  padding-right: 10px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 24px;
-  text-align: center;
-	display: none;
-  width: 600px;
-  border-radius: 5px;
   position: absolute;
-  left: 22.8%;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-  background-color: whiteSmoke;
-  background-image: -moz-linear-gradient(top, white, #E6E6E6);
-  background-image: -ms-linear-gradient(top, white, #E6E6E6);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#E6E6E6));
-  background-image: -webkit-linear-gradient(top, white, #E6E6E6);
-  background-image: -o-linear-gradient(top, white, #E6E6E6);
-  background-image: linear-gradient(top, white, #E6E6E6);
-  background-repeat: repeat-x;
-  p {
-  font-size: 18px;
-  line-height: 1;
-  }
-  .clear {
-    clear: both;
-  }
+  left: 805px;
+  top: 495px;
+  display: none;
 }
 
-/* Javascript lightbox with Recommended Project */
-.recommendation {
-  padding: 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 24px;
-  text-align: center;
-  height: 385px;
-  width: 600px;
-  border-radius: 5px;
-  position: absolute;
-  left: 474px;
-  top: 230px;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  background-color: whiteSmoke;
-  background-image: -moz-linear-gradient(top, white, #E6E6E6);
-  background-image: -ms-linear-gradient(top, white, #E6E6E6);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#E6E6E6));
-  background-image: -webkit-linear-gradient(top, white, #E6E6E6);
-  background-image: -o-linear-gradient(top, white, #E6E6E6);
-  background-image: linear-gradient(top, white, #E6E6E6);
-  background-repeat: repeat-x;
-  p {
-  font-size: 18px;
-  line-height: 1;
+.recommendation, .project-info {
+  padding: 15px;
+  h3 {
+  padding-top: 15px;
   }
-}
-
-.closer {
-  text-align: right;
-  padding-right: 7px;
-  position:absolute;
-  left: 440px;
-  top: 200px;
-  border-radius: 5px;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  background-color: gray;
-  background-image: -moz-linear-gradient(top, lightgray, darkgray);
-  background-image: -ms-linear-gradient(top, lightgray, darkgray);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(lightgray), to(darkgray));
-  background-image: -webkit-linear-gradient(top, lightgray, darkgray);
-  background-image: -o-linear-gradient(top, lightgray, darkgray);
-  background-image: linear-gradient(top, lightgray, darkgray);
-  background-repeat: repeat-x;
-  width: 700px;
-  height: 485px;
-}
-
-.close-button {
-  cursor: pointer;
+  img {
+    padding-top: 10px;
+  }
 }
 
 /* Footer */

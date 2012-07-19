@@ -7,7 +7,6 @@ class Projector extends Spine.Controller
 
   events:
     "mouseover .project-image" : "showInfo"
-    "mouseout .project-image" : "hideInfo"
     "click .close-button" : "hideRecommendation"
 
   constructor: ->
@@ -15,16 +14,15 @@ class Projector extends Spine.Controller
     Project.bind 'create', @addMedium
     Project.bind 'refresh', @addAll
     Project.fetch()
-    # Project.bind "refresh", @checkRecommendation
+    Project.bind "refresh", @checkRecommendation
     ProjectsCount.bind "refresh", @updateCount
     ProjectsCount.bind "create", @updateCount
     ProjectsCount.fetch()
 
   showInfo: (e) ->
-    $(e.target).first().parent().parent().next().show()
-
-  hideInfo: (e) ->
+    $('.test').empty()
     $(".project-info").hide()
+    $(e.target).first().parent().parent().next().show()
 
   addAll: =>
     @projects.empty()
@@ -37,7 +35,7 @@ class Projector extends Spine.Controller
         @addLarge(project)
 
   checkRecommendation: =>
-    if Project.all().length <= 20
+    if Project.all().length <= 1000
       @displayRecommendation(Project.first())
 
   addSmall: (project) =>
@@ -50,11 +48,9 @@ class Projector extends Spine.Controller
     @projects.append @largeTemplate(project)
 
   displayRecommendation: (project) ->
-    @projects.append @recommendationTemplate(project)
+    $('.test').empty()
+    $('.test').append @recommendationTemplate(project)
 
-  hideRecommendation: ->
-    $('.closer').hide()
-    $(".recommendation").hide()
 
   smallTemplate: (project) ->
     @view('projects/small_project')(project:
