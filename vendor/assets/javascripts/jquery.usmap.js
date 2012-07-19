@@ -65,7 +65,7 @@
     
     // The styles for the hover
     'stateHoverStyles': {
-      fill: "#33c",
+      fill: "#15909B",
       stroke: "#000",
       scale: [1.1, 1.1]
     },
@@ -115,7 +115,7 @@
     
     // The styles for the hover
     'labelBackingHoverStyles': {
-      fill: "#33c",
+      fill: "#15909B",
       stroke: "#000"
     },
     

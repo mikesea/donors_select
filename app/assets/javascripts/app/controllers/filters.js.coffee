@@ -23,23 +23,29 @@ class Filterer extends Spine.Controller
     @filterActions.empty().append @view('filters/states')
     priorstate = ""
     $("#map").usmap click: (event, data) =>
-      clearPriorState(priorstate)
-      fillStateAreas(data)
-      $("#state-button .state_text").text "State: "+data.name
-      $("#state-button").attr({'data-api-params': 'filters[]=state='+data.name})
-      priorstate = data
-      @submitAPIRequest()
+      if priorstate.name == data.name
+        clearPriorState(data)
+        $("#state-button").attr({'data-api-params':""})
+        $("#state-button .state_text").text("State")
+        priorstate = ""
+      else
+        if priorstate
+          clearPriorState(priorstate)
+        fillStateAreas(data)
+        $("#state-button .state_text").text "State: "+data.name
+        $("#state-button").attr({'data-api-params': 'filters[]=state='+data.name})
+        priorstate = data
+        @submitAPIRequest()
 
   clearPriorState = (priorstate) ->
-    if priorstate
       priorstate.hitArea.attr({fill:"#333", opacity: 0})
       if priorstate.labelHitArea
         priorstate.labelHitArea.attr({fill:"#333", opacity: 0})
 
   fillStateAreas = (state) ->
-    state.hitArea.attr({fill:"#ff0000", opacity: 1})
+    state.hitArea.attr({fill:"#FFB71F", opacity: 1})
     if state.labelHitArea
-      state.labelHitArea.attr({fill:"#ff0000", opacity: 1})
+      state.labelHitArea.attr({fill:"#FFB71F", opacity: 1})
 
   submitAPIRequest: ->
     state = $("#state-button").attr('data-api-params')
