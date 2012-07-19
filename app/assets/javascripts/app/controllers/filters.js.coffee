@@ -41,7 +41,7 @@ class Filterer extends Spine.Controller
 
   filterBySubject: (e) ->
     $(".filter_button").removeClass("active")
-    $(".sub-subjects-container").hide()
+    $(".sub-subjects-container").remove()
     $("#subject-button").addClass("active")
     @el.height(275)
     @filterActions.empty()
@@ -56,16 +56,15 @@ class Filterer extends Spine.Controller
 
   showSubSubjects: (e) ->
     subject_button = $(e.target)
-    # unless subject_button.hasClass("active")
     @el.height(450)
     $(".subject").removeClass("active")
     $(".sub-subject").removeClass("active")
     $(".special-needs").removeClass("active")
     $(".sub-subjects-container").hide()
     subject_button.addClass("active")
-    subject_buttons = subject_button.next()
-    subject_buttons.insertAfter("#subject-buttons-container")
-    subject_buttons.show()
+    sub_subject = subject_button.attr('id')
+    sub_subject_buttons = $("div [id='#{sub_subject} subjects']")
+    sub_subject_buttons.show()
     $("#subject-button").text(subject_button.attr('id'))
     $("#subject-button").addClass("shrink")
 
