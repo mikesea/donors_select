@@ -23,7 +23,7 @@ class Clearer extends Spine.Controller
     $("path").attr "class", "state"
     $("path").attr "fill", "#333"
     $(".filter-actions").empty()
-    $("#filter_buttons").height(200)
+    $("#filter_buttons").height(130)
     @submitAPIRequest()
 
   submitAPIRequest: ->
