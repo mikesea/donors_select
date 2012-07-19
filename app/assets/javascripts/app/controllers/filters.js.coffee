@@ -63,8 +63,9 @@ class Filterer extends Spine.Controller
 
   filterBySubject: (e) ->
     $(".filter_button").removeClass("active")
+    $(".sub-subjects-container").remove()
     $("#subject-button").addClass("active")
-    @el.height(250)
+    @el.height(275)
     @filterActions.empty()
     @filterActions.append @view('filters/subjects')
 
@@ -84,17 +85,26 @@ class Filterer extends Spine.Controller
     @submitAPIRequest()
 
   showSubSubjects: (e) ->
-    $("#subject-button").removeClass("shrink")
     subject_button = $(e.target)
-    $(".subject").hide()
-    $(".special-needs").hide()
-    subject_button.next().show()
-    $("#subject-button .subject_text").text(subject_button.attr('id'))
+    @el.height(450)
+    $(".subject").removeClass("active")
+    $(".sub-subject").removeClass("active")
+    $(".special-needs").removeClass("active")
+    $(".sub-subjects-container").hide()
+    subject_button.addClass("active")
+    sub_subject = subject_button.attr('id')
+    sub_subject_buttons = $("div [id='#{sub_subject} subjects']")
+    sub_subject_buttons.show()
+    $("#subject-button").text(subject_button.attr('id'))
     $("#subject-button").addClass("shrink")
 
   showSpecialNeeds: (e) ->
+    @el.height(275)
     $("#subject-button").removeClass("shrink")
-    $("#subject-button .subject_text").text("Special Needs")
+    $("#subject-button").text("Special Needs")
+    $(".sub-subjects-container").hide()
+    $(".subject").removeClass("active")
+    $(e.target).addClass("active")
 
   changeButtonText: (e) ->
     $(".sub-subject").removeClass("active")
@@ -102,6 +112,15 @@ class Filterer extends Spine.Controller
     sub_subject_button.addClass("active")
     if sub_subject_button.hasClass("short")
       $("#subject-button").removeClass("shrink")
-    $("#subject-button .subject_text").text(sub_subject_button.attr('id'))
+    else
+      $("#subject-button").addClass("shrink")
+    $("#subject-button").text(sub_subject_button.attr('id'))
+
+  gradeList: (e) ->
+    $(".grade_button").removeClass("active")
+    grade_button = $(e.target)
+    grade_button.addClass("active")
+    $("#grade-button").text(grade_button.attr('id'))
+    console.log(grade_button.attr('id'))
 
 window.Filterer = Filterer

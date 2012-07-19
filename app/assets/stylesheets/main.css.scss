@@ -167,12 +167,18 @@ body {
   padding-bottom: 15px;
 }
 
+.special-needs.active {
+  -moz-box-shadow: inset 5px 5px 10px #888;
+  -webkit-box-shadow: inset 5px 5px 10px #888;
+  box-shadow: inset 5px 5px 10px #888;
+}
+
 #subject-buttons-container {
   width: 1200px;
   height: 50px;
   margin: 0 auto;
   float: center;
-  margin-top: 25px;
+  margin-top: 75px;
   margin-bottom: 25px;
 }
 
@@ -181,7 +187,7 @@ body {
   height: 50px;
   margin: 0 auto;
   float: center;
-  margin-top: 25px;
+  margin-top: 125px;
   margin-bottom: 25px;
 }
 
@@ -200,10 +206,9 @@ body {
   padding-bottom: 15px;
 }
 
-/* Project formatting */
-
-.container {
-  width: 1140px;
+.shrink {
+  padding-top: 0px;
+  height: 80px;
 }
 
 .projects-container {
