@@ -54,9 +54,12 @@ class Filterer extends Spine.Controller
         $(".projects-list").empty()
         for project in projects
           Project.create(project, {ajax: false})
-      error: ->
-        $(".projects-list").empty()
-        $(".projects-list").append @view('filters/loading')
+
+    @loading()
+
+  loading: ->
+    $(".projects-list").empty()
+    $(".projects-list").append "<h1>Loading!</h1>"
 
   filterBySubject: (e) ->
     $(".filter_button").removeClass("active")
