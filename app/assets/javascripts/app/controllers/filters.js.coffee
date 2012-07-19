@@ -55,11 +55,13 @@ class Filterer extends Spine.Controller
     @filterActions.append @view('filters/grades')
 
   showSubSubjects: (e) ->
+    subject_button = $(e.target)
+    # unless subject_button.hasClass("active")
     @el.height(450)
     $(".subject").removeClass("active")
+    $(".sub-subject").removeClass("active")
     $(".special-needs").removeClass("active")
     $(".sub-subjects-container").hide()
-    subject_button = $(e.target)
     subject_button.addClass("active")
     subject_buttons = subject_button.next()
     subject_buttons.insertAfter("#subject-buttons-container")
@@ -81,6 +83,8 @@ class Filterer extends Spine.Controller
     sub_subject_button.addClass("active")
     if sub_subject_button.hasClass("short")
       $("#subject-button").removeClass("shrink")
+    else
+      $("#subject-button").addClass("shrink")
     $("#subject-button").text(sub_subject_button.attr('id'))
 
   gradeList: (e) ->
