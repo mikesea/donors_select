@@ -3,6 +3,6 @@
 </div>
 <div class="project-info">
   <h2><%= unescape(@project.title) %></h2>
-  <p><%= unescape(@project.description) %></p>
+  <p><%= unescape(@project.shortDescription) %></p>
   <br class="clear" />
 </div>

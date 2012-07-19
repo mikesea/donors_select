@@ -15,10 +15,10 @@ class Projector extends Spine.Controller
     Project.bind 'create', @addMedium
     Project.bind 'refresh', @addAll
     Project.fetch()
-    # Project.bind "refresh", @addAll
     # Project.bind "refresh", @checkRecommendation
-    # ProjectsCount.bind "refresh", @updateCount
-    # ProjectsCount.fetch()
+    ProjectsCount.bind "refresh", @updateCount
+    ProjectsCount.bind "create", @updateCount
+    ProjectsCount.fetch()
 
   showInfo: (e) ->
     $(e.target).first().parent().parent().next().show()

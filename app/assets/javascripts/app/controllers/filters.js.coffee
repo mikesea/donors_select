@@ -57,6 +57,14 @@ class Filterer extends Spine.Controller
 
     @loading()
 
+    $.ajax
+      type: 'get',
+      url: 'projects_counts.json',
+      data: state + "&" + subject + "&" + grade
+      success: (count) ->
+        ProjectsCount.deleteAll()
+        ProjectsCount.create(count, {ajax: false})
+
   loading: ->
     $(".projects-list").empty()
     $(".projects-list").append "<h1>Loading!</h1>"
