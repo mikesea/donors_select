@@ -57,6 +57,14 @@ class Filterer extends Spine.Controller
 
     @loading()
 
+    $.ajax
+      type: 'get',
+      url: 'projects_counts.json',
+      data: state + "&" + subject + "&" + grade
+      success: (count) ->
+        ProjectsCount.deleteAll()
+        ProjectsCount.create(count, {ajax: false})
+
   loading: ->
     $(".projects-list").empty()
     $(".projects-list").append "<h1>Loading!</h1>"
@@ -115,12 +123,5 @@ class Filterer extends Spine.Controller
     else
       $("#subject-button").addClass("shrink")
     $("#subject-button").text(sub_subject_button.attr('id'))
-
-  gradeList: (e) ->
-    $(".grade_button").removeClass("active")
-    grade_button = $(e.target)
-    grade_button.addClass("active")
-    $("#grade-button").text(grade_button.attr('id'))
-    console.log(grade_button.attr('id'))
 
 window.Filterer = Filterer

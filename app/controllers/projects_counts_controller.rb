@@ -1,7 +1,7 @@
 class ProjectsCountsController < ApplicationController
 
   def index
-    @data = Project.count
+    @data = Project.find_by(params[:filters], cookies.signed[:token])
   end
 end
 

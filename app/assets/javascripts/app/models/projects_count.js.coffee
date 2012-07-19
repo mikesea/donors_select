@@ -1,5 +1,5 @@
 class ProjectsCount extends Spine.Model
-  @configure 'ProjectsCount'
+  @configure 'ProjectsCount', 'count'
   @extend Spine.Model.Ajax
 
   @url = "/projects_counts"
