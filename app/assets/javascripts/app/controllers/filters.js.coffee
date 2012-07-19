@@ -25,7 +25,7 @@ class Filterer extends Spine.Controller
     $("#map").usmap click: (event, data) =>
       clearPriorState(priorstate)
       fillStateAreas(data)
-      $("#state-button").text "State: "+data.name
+      $("#state-button .state_text").text "State: "+data.name
       $("#state-button").attr({'data-api-params': 'filters[]=state='+data.name})
       priorstate = data
       @submitAPIRequest()
@@ -69,7 +69,7 @@ class Filterer extends Spine.Controller
     $(".grade_button").removeClass("active")
     grade_button = $(e.target)
     grade_button.addClass("active")
-    $("#grade-button").text(grade_button.attr('id'))
+    $("#grade-button .grade_text").text(grade_button.attr('id'))
     $("#grade-button").attr({'data-api-params': grade_button.attr('data-api-params')})
     @submitAPIRequest()
 
@@ -79,12 +79,12 @@ class Filterer extends Spine.Controller
     $(".subject").hide()
     $(".special-needs").hide()
     subject_button.next().show()
-    $("#subject-button").text(subject_button.attr('id'))
+    $("#subject-button .subject_text").text(subject_button.attr('id'))
     $("#subject-button").addClass("shrink")
 
   showSpecialNeeds: (e) ->
     $("#subject-button").removeClass("shrink")
-    $("#subject-button").text("Special Needs")
+    $("#subject-button .subject_text").text("Special Needs")
 
   changeButtonText: (e) ->
     $(".sub-subject").removeClass("active")
@@ -92,6 +92,6 @@ class Filterer extends Spine.Controller
     sub_subject_button.addClass("active")
     if sub_subject_button.hasClass("short")
       $("#subject-button").removeClass("shrink")
-    $("#subject-button").text(sub_subject_button.attr('id'))
+    $("#subject-button .subject_text").text(sub_subject_button.attr('id'))
 
 window.Filterer = Filterer
