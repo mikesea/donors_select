@@ -42,22 +42,21 @@ class Filterer extends Spine.Controller
       state.labelHitArea.attr({fill:"#ff0000", opacity: 1})
 
   submitAPIRequest: ->
-    console.log("submitAPIRequest function")
     state = $("#state-button").attr('data-api-params')
     subject = $("#subject-button").attr('data-api-params')
     grade = $("#grade-button").attr('data-api-params')
     $.ajax
-      type: 'GET',
+      type: 'get',
       url: 'projects.json',
       data: state + "&" + subject + "&" + grade
       success: (projects) ->
         Project.deleteAll()
         $(".projects-list").empty()
         for project in projects
-          Project.create(project)
+          Project.create(project, {ajax: false})
       error: ->
         $(".projects-list").empty()
-        $(".projects-list").append "<h1>LOADING!!!</h1>"
+        $(".projects-list").append @view('filters/loading')
 
   filterBySubject: (e) ->
     $(".filter_button").removeClass("active")

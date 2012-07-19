@@ -12,7 +12,7 @@ class Projector extends Spine.Controller
 
   constructor: ->
     super
-    Project.bind 'create', @addLarge
+    Project.bind 'create', @addMedium
     Project.bind 'refresh', @addAll
     Project.fetch()
     # Project.bind "refresh", @addAll
@@ -25,9 +25,6 @@ class Projector extends Spine.Controller
 
   hideInfo: (e) ->
     $(".project-info").hide()
-
-  addOne: (project) =>
-    @projects.append "<h1>#{project.title}</h1>"
 
   addAll: =>
     @projects.empty()
