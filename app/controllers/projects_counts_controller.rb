@@ -3,6 +3,7 @@ class ProjectsCountsController < ApplicationController
 
   def index
     @data = Project.test_data
+    puts @data.inspect
   end
 end
 
