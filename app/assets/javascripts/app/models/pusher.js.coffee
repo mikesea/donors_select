@@ -17,8 +17,6 @@ class PusherHandler extends Spine.Module
     @channel.bind_all @processWithoutAjax
 
   process: (type, msg) =>
-    return false unless msg
-
     switch type
       when 'projects_fetch'
         Project.deleteAll()
