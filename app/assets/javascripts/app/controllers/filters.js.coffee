@@ -109,7 +109,7 @@ class Filterer extends Spine.Controller
     @submitAPIRequest()
 
   showSpecialNeeds: (e) ->
-    @el.height(275)
+    @el.height(310)
     $("#subject-button").removeClass("shrink")
     $("#subject-button .subject_text").text("Special Needs")
     $("#subject-button").attr({'data-api-params': $(e.target).attr('data-api-params')})

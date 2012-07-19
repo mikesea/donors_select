@@ -209,6 +209,18 @@ body {
   padding-bottom: 15px;
 }
 
+.subject.active {
+  -moz-box-shadow: inset 5px 5px 10px #888;
+  -webkit-box-shadow: inset 5px 5px 10px #888;
+  box-shadow: inset 5px 5px 10px #888;
+}
+
+.sub-subject.active {
+  -moz-box-shadow: inset 5px 5px 10px #888;
+  -webkit-box-shadow: inset 5px 5px 10px #888;
+  box-shadow: inset 5px 5px 10px #888;
+}
+
 .shrink {
   padding-top: 10px;
   height: 90px;
