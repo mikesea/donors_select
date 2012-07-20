@@ -1,5 +1,5 @@
-<div class="medium-projects">
-  <a href="<%= @project.proposalURL %>"><img class="project-image" src="<%= @project.imageURL %>"></img></a>
+<div class="medium-projects" data-id="<%= @project.id %>">
+  <img class="project-image" src="<%= @project.imageURL %>"></img>
 </div>
 <div class="project-info">
   <h3><%= @project.title %></h3>
