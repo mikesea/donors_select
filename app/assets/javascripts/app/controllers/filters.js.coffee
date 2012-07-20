@@ -107,9 +107,9 @@ class Filterer extends Spine.Controller
     $(".sub-subjects-container").hide()
     subject_button.addClass("active")
     sub_subject = subject_button.attr('id')
-    sub_subject_buttons = $("div [id='#{sub_subject} subjects']")
+    sub_subject_buttons = $("div [id='#{sub_subject}_subjects']")
     sub_subject_buttons.show()
-    $("#subject-button .subject_text").text(subject_button.attr('id'))
+    $("#subject-button .subject_text").text(subject_button.text())
     $("#subject-button").attr({'data-api-params': subject_button.attr('data-api-params')})
     $("#subject-button").addClass("shrink")
     @submitAPIRequest()
@@ -132,7 +132,7 @@ class Filterer extends Spine.Controller
       $("#subject-button").removeClass("shrink")
     else
       $("#subject-button").addClass("shrink")
-    $("#subject-button .subject_text").text(sub_subject_button.attr('id'))
+    $("#subject-button .subject_text").text(sub_subject_button.text())
     $("#subject-button").attr({'data-api-params': sub_subject_button.attr('data-api-params')})
     @submitAPIRequest()
 
