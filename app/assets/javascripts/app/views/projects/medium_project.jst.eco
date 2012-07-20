@@ -1,4 +1,4 @@
-<div class="medium-projects">
+<div class="medium-projects" data-id="<%= @project.id %>">
   <img class="project-image" src="<%= @project.imageURL %>"></img>
 </div>
 <div class="project-info">
