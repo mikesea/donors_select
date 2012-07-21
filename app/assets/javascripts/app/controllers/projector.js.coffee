@@ -21,8 +21,9 @@ class Projector extends Spine.Controller
 
   showInfo: (e) ->
     $('.test').empty()
-    $('.test').append $(e.target).parent().next('.project-info').show()
-    console.log $(e.target).parent().next().show('.project-info')
+    project_id = $(e.target).parent().attr('data-id')
+    project = Project.find(project_id)
+    @displayRecommendation(project)
 
   addAll: =>
     @projects.empty()

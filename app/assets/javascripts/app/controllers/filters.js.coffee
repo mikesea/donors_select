@@ -19,7 +19,6 @@ class Filterer extends Spine.Controller
   filterByState: (e) ->
     $(".filter_button").removeClass("active")
     $("#state-button").addClass("active")
-    @el.height(730)
     @filterActions.empty().append @view('filters/states')
     priorstate = ""
     $("#map").usmap click: (event, data) =>
@@ -79,7 +78,6 @@ class Filterer extends Spine.Controller
     $(".filter_button").removeClass("active")
     $(".sub-subjects-container").remove()
     $("#subject-button").addClass("active")
-    @el.height(310)
     @filterActions.empty()
     @filterActions.append @view('filters/subjects')
 
@@ -87,7 +85,6 @@ class Filterer extends Spine.Controller
     $(".filter_button").removeClass("active")
     $("#grade-button").addClass("active")
     @filterActions.empty()
-    @el.height(220)
     @filterActions.append @view('filters/grades')
 
   gradeList: (e) ->
@@ -100,22 +97,20 @@ class Filterer extends Spine.Controller
 
   showSubSubjects: (e) ->
     subject_button = $(e.target)
-    @el.height(480)
     $(".subject").removeClass("active")
     $(".sub-subject").removeClass("active")
     $(".special-needs").removeClass("active")
     $(".sub-subjects-container").hide()
     subject_button.addClass("active")
     sub_subject = subject_button.attr('id')
-    sub_subject_buttons = $("div [id='#{sub_subject} subjects']")
+    sub_subject_buttons = $("div##{sub_subject}_subjects")
     sub_subject_buttons.show()
-    $("#subject-button .subject_text").text(subject_button.attr('id'))
+    $("#subject-button .subject_text").text(subject_button.text())
     $("#subject-button").attr({'data-api-params': subject_button.attr('data-api-params')})
     $("#subject-button").addClass("shrink")
     @submitAPIRequest()
 
   showSpecialNeeds: (e) ->
-    @el.height(310)
     $("#subject-button").removeClass("shrink")
     $("#subject-button .subject_text").text("Special Needs")
     $("#subject-button").attr({'data-api-params': $(e.target).attr('data-api-params')})
@@ -132,7 +127,7 @@ class Filterer extends Spine.Controller
       $("#subject-button").removeClass("shrink")
     else
       $("#subject-button").addClass("shrink")
-    $("#subject-button .subject_text").text(sub_subject_button.attr('id'))
+    $("#subject-button .subject_text").text(sub_subject_button.text())
     $("#subject-button").attr({'data-api-params': sub_subject_button.attr('data-api-params')})
     @submitAPIRequest()
 

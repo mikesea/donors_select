@@ -1,4 +1,4 @@
-<div class="small-projects">
+<div class="small-projects" data-id="<%= @project.id %>">
   <img class="project-image" src="<%= @project.imageURL %>"></img>
 </div>
 <div class="project-info">

@@ -19,3 +19,5 @@
 
 # Ignore coverage files
 /coverage
+
+/.sass-cache/
