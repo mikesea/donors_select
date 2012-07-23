@@ -46,13 +46,9 @@ class Filterer extends Spine.Controller
 
   filterByState: (e) ->
     @setActiveButton('#state-button')
-    @filterActions.empty().append @view('filters/loading_filler')
+    @filterActions.empty().append @view('filters/state_loading_filler')
     @filterActions.append @view('filters/states')
-    $("#map-container").hide()
-    if ($("#map-container").is(":hidden"))
-      $("#map-container").slideDown("slow");
-    else
-      $("#map-container").slideUp("slow");
+    $("#map-container").hide().slideDown("slow")
     priorstate = ""
     $("#map").usmap click: (event, data) =>
       if priorstate.name == data.name
@@ -82,13 +78,13 @@ class Filterer extends Spine.Controller
   filterBySubject: (e) ->
     @setActiveButton('#subject-button')
     $(".sub-subjects-container").remove()
-    @filterActions.empty()
+    @filterActions.empty().append @view('filters/grade_loading_filler')
     @filterActions.append @view('filters/subjects')
     $("#subject-buttons-container").hide().slideDown("slow")
 
   filterByGrade: (e) ->
     @setActiveButton("#grade-button")
-    @filterActions.empty()
+    @filterActions.empty().append @view('filters/grade_loading_filler')
     @filterActions.append @view('filters/grades')
     $("#grade_buttons").hide().slideDown("slow")
 
