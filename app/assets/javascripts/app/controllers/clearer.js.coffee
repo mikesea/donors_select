@@ -52,7 +52,7 @@ class Clearer extends Spine.Controller
 
   loading: ->
     $(".projects-list").empty()
-    $(".projects-list").append "<h1>Loading!</h1>"
+    $(".projects-list").append @view('projects/loading')
     
 
 window.Clearer = Clearer

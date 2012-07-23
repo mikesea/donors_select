@@ -16,36 +16,6 @@ class Filterer extends Spine.Controller
   constructor: ->
     super
 
-  filterByState: (e) ->
-    $(".filter_button").removeClass("active")
-    $("#state-button").addClass("active")
-    @filterActions.empty().append @view('filters/states')
-    priorstate = ""
-    $("#map").usmap click: (event, data) =>
-      if priorstate.name == data.name
-        clearPriorState(data)
-        $("#state-button").attr({'data-api-params':""})
-        $("#state-button .state_text").text("State")
-        priorstate = ""
-      else
-        if priorstate
-          clearPriorState(priorstate)
-        fillStateAreas(data)
-        $("#state-button .state_text").text "State: "+data.name
-        $("#state-button").attr({'data-api-params': 'filters[]=state='+data.name})
-        priorstate = data
-        @submitAPIRequest()
-
-  clearPriorState = (priorstate) ->
-      priorstate.hitArea.attr({fill:"#333", opacity: 0})
-      if priorstate.labelHitArea
-        priorstate.labelHitArea.attr({fill:"#333", opacity: 0})
-
-  fillStateAreas = (state) ->
-    state.hitArea.attr({fill:"#FFB71F", opacity: 1})
-    if state.labelHitArea
-      state.labelHitArea.attr({fill:"#FFB71F", opacity: 1})
-
   submitAPIRequest: ->
     state = $("#state-button").attr('data-api-params')
     subject = $("#subject-button").attr('data-api-params')
@@ -72,7 +42,42 @@ class Filterer extends Spine.Controller
 
   loading: ->
     $(".projects-list").empty()
-    $(".projects-list").append "<h1>Loading!</h1>"
+    $(".projects-list").append @view('projects/loading')
+
+  filterByState: (e) ->
+    $(".filter_button").removeClass("active")
+    $("#state-button").addClass("active")
+    @filterActions.empty().append @view('filters/states')
+    $("#map-container").hide()
+    if ($("#map-container").is(":hidden"))
+      $("#map-container").slideDown("slow");
+    else
+      $("#map-container").slideUp("slow");
+    priorstate = ""
+    $("#map").usmap click: (event, data) =>
+      if priorstate.name == data.name
+        clearPriorState(data)
+        $("#state-button").attr({'data-api-params':""})
+        $("#state-button .state_text").text("State")
+        priorstate = ""
+      else
+        if priorstate
+          clearPriorState(priorstate)
+        fillStateAreas(data)
+        $("#state-button .state_text").text "State: "+data.name
+        $("#state-button").attr({'data-api-params': 'filters[]=state='+data.name})
+        priorstate = data
+        @submitAPIRequest()
+
+  clearPriorState = (priorstate) ->
+      priorstate.hitArea.attr({fill:"#333", opacity: 0})
+      if priorstate.labelHitArea
+        priorstate.labelHitArea.attr({fill:"#333", opacity: 0})
+
+  fillStateAreas = (state) ->
+    state.hitArea.attr({fill:"#FFB71F", opacity: 1})
+    if state.labelHitArea
+      state.labelHitArea.attr({fill:"#FFB71F", opacity: 1})
 
   filterBySubject: (e) ->
     $(".filter_button").removeClass("active")
@@ -80,12 +85,14 @@ class Filterer extends Spine.Controller
     $("#subject-button").addClass("active")
     @filterActions.empty()
     @filterActions.append @view('filters/subjects')
+    $("#subject-buttons-container").hide().slideDown("slow")
 
   filterByGrade: (e) ->
     $(".filter_button").removeClass("active")
     $("#grade-button").addClass("active")
     @filterActions.empty()
     @filterActions.append @view('filters/grades')
+    $("#grade_buttons").hide().slideDown("slow")
 
   gradeList: (e) ->
     $(".grade_button").removeClass("active")
