@@ -17,11 +17,16 @@ class PusherHandler extends Spine.Module
     @channel.bind_all @processWithoutAjax
 
   process: (type, msg) =>
+    projects = $(".projects-list")
+    projectsCount = $(".projects-count")
+    
     switch type
       when 'projects_fetch'
         Project.deleteAll()
-        $(".projects-list").empty()
-        for project in msg.projects
+        projects.empty()
+        projectsCount.empty()
+        projectsCount.append "<h1>#{msg.projects.totalProposals} matching projects</h1>"
+        for project in msg.projects.proposals
           Project.create(project)
       else
         return false

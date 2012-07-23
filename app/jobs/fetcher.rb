@@ -3,9 +3,10 @@ class Fetcher
 
   def self.perform(uri, user_token)
     unless Project.redis.get uri
-      Project.redis.set uri, JSON.parse(Net::HTTP.get(URI(uri))).to_json
+      json = JSON.parse(Net::HTTP.get(URI(uri))).to_json
+      Project.redis.set uri, json
     end
-    publish(JSON.parse(Project.redis.get(uri))["proposals"], user_token)
+    publish(JSON.parse(Project.redis.get(uri)), user_token)
   end
 
 private

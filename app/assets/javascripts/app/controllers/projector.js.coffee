@@ -11,7 +11,7 @@ class Projector extends Spine.Controller
 
   constructor: ->
     super
-    Project.bind 'create', @addMedium
+    Project.bind 'create', @addLarge
     Project.bind 'refresh', @addAll
     Project.fetch()
     Project.bind "refresh", @checkRecommendation
@@ -51,7 +51,6 @@ class Projector extends Spine.Controller
   displayRecommendation: (project) ->
     $('.test').empty()
     $('.test').append @recommendationTemplate(project)
-
 
   smallTemplate: (project) ->
     @view('projects/small_project')(project:

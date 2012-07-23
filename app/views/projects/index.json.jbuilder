@@ -3,5 +3,5 @@ json.(@projects["proposals"]) do |json, project|
   json.proposalURL project["proposalURL"]
   json.imageURL project["imageURL"]
   json.title CGI::unescapeHTML(project["title"])
-  json.description CGI::unescapeHTML(project["shortDescription"])
+  json.shortDescription CGI::unescapeHTML(project["shortDescription"])
 end
