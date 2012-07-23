@@ -6,7 +6,7 @@ class Projector extends Spine.Controller
     ".projects-count" : "count"
 
   events:
-    "mouseover .project-image" : "showInfo"
+    "click .project-image" : "showInfo"
     "click .close-button" : "hideRecommendation"
 
   constructor: ->
@@ -20,7 +20,7 @@ class Projector extends Spine.Controller
     ProjectsCount.fetch()
 
   showInfo: (e) ->
-    $('.test').empty()
+    $('.spotlight-inner').empty()
     project_id = $(e.target).parent().attr('data-id')
     project = Project.find(project_id)
     @displayRecommendation(project)
@@ -28,41 +28,21 @@ class Projector extends Spine.Controller
   addAll: =>
     @projects.empty()
     for project in Project.all()
-      if Project.all().length >= 144
-        @addSmall(project)
-      else if Project.all().length >= 64
-        @addMedium(project)
-      else
-        @addLarge(project)
+      @addProject(project)
 
   checkRecommendation: =>
     if Project.all().length <= 1000
       @displayRecommendation(Project.first())
 
-  addSmall: (project) =>
-    @projects.append @smallTemplate(project)
-
-  addMedium: (project) =>
-    @projects.append @mediumTemplate(project)
-
-  addLarge: (project) =>
-    @projects.append @largeTemplate(project)
+  addProject: (project) =>
+    @projects.append @projectTemplate(project)
 
   displayRecommendation: (project) ->
-    $('.test').empty()
-    $('.test').append @recommendationTemplate(project)
+    $('.spotlight-inner').empty()
+    $('.spotlight-inner').append @recommendationTemplate(project)
 
-
-  smallTemplate: (project) ->
-    @view('projects/small_project')(project:
-      project)
-
-  mediumTemplate: (project) ->
-    @view('projects/medium_project')(project:
-      project)
-
-  largeTemplate: (project) ->
-    @view('projects/large_project')(project:
+  projectTemplate: (project) ->
+    @view('projects/project_info')(project:
       project)
 
   recommendationTemplate: (project) ->
