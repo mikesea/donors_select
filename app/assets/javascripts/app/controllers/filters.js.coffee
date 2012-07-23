@@ -45,8 +45,7 @@ class Filterer extends Spine.Controller
     $(".projects-list").append @view('projects/loading')
 
   filterByState: (e) ->
-    $(".filter_button").removeClass("active")
-    $("#state-button").addClass("active")
+    @setActiveButton('#state-button')
     @filterActions.empty().append @view('filters/states')
     $("#map-container").hide()
     if ($("#map-container").is(":hidden"))
@@ -80,16 +79,14 @@ class Filterer extends Spine.Controller
       state.labelHitArea.attr({fill:"#FFB71F", opacity: 1})
 
   filterBySubject: (e) ->
-    $(".filter_button").removeClass("active")
+    @setActiveButton('#subject-button')
     $(".sub-subjects-container").remove()
-    $("#subject-button").addClass("active")
     @filterActions.empty()
     @filterActions.append @view('filters/subjects')
     $("#subject-buttons-container").hide().slideDown("slow")
 
   filterByGrade: (e) ->
-    $(".filter_button").removeClass("active")
-    $("#grade-button").addClass("active")
+    @setActiveButton("#grade-button")
     @filterActions.empty()
     @filterActions.append @view('filters/grades')
     $("#grade_buttons").hide().slideDown("slow")
@@ -107,6 +104,7 @@ class Filterer extends Spine.Controller
     $(".subject").removeClass("active")
     $(".sub-subject").removeClass("active")
     $(".special-needs").removeClass("active")
+    $("#subject-buttons-container").hide()
     $(".sub-subjects-container").hide()
     subject_button.addClass("active")
     sub_subject = subject_button.attr('id')
@@ -137,5 +135,9 @@ class Filterer extends Spine.Controller
     $("#subject-button .subject_text").text(sub_subject_button.text())
     $("#subject-button").attr({'data-api-params': sub_subject_button.attr('data-api-params')})
     @submitAPIRequest()
+
+  setActiveButton: (selector) ->
+    $(".filter_button").removeClass("active") 
+    $(selector).addClass("active")
 
 window.Filterer = Filterer
