@@ -115,6 +115,7 @@ class Filterer extends Spine.Controller
     else if @filterActions.children().size() > 0
       @setActiveButton('#subject-button')
       $(".filter-actions :nth-child(2)").slideUp("slow")
+      @filterActions.empty()
       $(".sub-subjects-container").remove()
       @filterActions.empty().append @view('filters/grade_loading_filler')
       @filterActions.append @view('filters/subjects')
@@ -137,11 +138,11 @@ class Filterer extends Spine.Controller
       $(".filter-actions :nth-child(2)").slideUp("slow")
       @filterActions.empty().append @view('filters/grade_loading_filler')
       @filterActions.append @view('filters/grades')
-      $("#grade_buttons").hide().slideDown("slow")
+      $("#grade-buttons-container").hide().slideDown("slow")
     else
       @filterActions.empty().append @view('filters/grade_loading_filler')
       @filterActions.append @view('filters/grades')
-      $("#grade_buttons").hide().slideDown("slow")
+      $("#grade-buttons-container").hide().slideDown("slow")
 
   gradeList: (e) ->
     $(".grade_button").removeClass("active")
@@ -164,7 +165,10 @@ class Filterer extends Spine.Controller
     sub_subject_buttons.show()
     $("#subject-button .subject_text").text(subject_button.text())
     $("#subject-button").attr({'data-api-params': subject_button.attr('data-api-params')})
-    $("#subject-button").removeClass("shrink")
+    if subject_button.hasClass("short")
+      removeClass("shrink")
+    else
+      $("#subject-button").addClass("shrink")
     @submitAPIRequest()
 
   showSpecialNeeds: (e) ->
