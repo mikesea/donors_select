@@ -1,9 +1,0 @@
-<div class="small-projects" data-id="<%= @project.id %>">
-  <img class="project-image" src="<%= @project.imageURL %>"></img>
-</div>
-<div class="project-info">
-  <h3><%= @project.title %></h3>
-  <a href="<%= @project.proposalURL %>"><img src="<%= @project.imageURL %>"></img></a>
-  <p />
-  <a class="btn btn-large btn-info" href="<%= @project.proposalURL %>">Donate now!</a>
-</div>
