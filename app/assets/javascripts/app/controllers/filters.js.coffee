@@ -46,7 +46,8 @@ class Filterer extends Spine.Controller
 
   filterByState: (e) ->
     @setActiveButton('#state-button')
-    @filterActions.empty().append @view('filters/states')
+    @filterActions.empty().append @view('filters/loading_filler')
+    @filterActions.append @view('filters/states')
     $("#map-container").hide()
     if ($("#map-container").is(":hidden"))
       $("#map-container").slideDown("slow");
