@@ -1,6 +1,7 @@
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Montserrat);
 @import url(http://fonts.googleapis.com/css?family=Arvo);
+@import url(http://fonts.googleapis.com/css?family=Kaushan+Script);
 
 
 $lightBlue: #2A53C1;
@@ -43,30 +44,35 @@ body {
 
 #logo-nav {
   background-color: $plain;
-  background-image: url("/assets/giveheart.png");
-  background-repeat:no-repeat;
-  background-position: 160px 10px;
+  background-image: url();
+  background-repeat: no-repeat;
+  background-position: top left;
   padding: 15px;
-  height: 200px;
+  height: 250px;
   h2 {
+    padding-top: 40px;
     color: black;
-  }
-  #logo {
-  font-family: 'Montserrat', sans-serif;
+    font-size: 8em;
+    font-family: 'Kaushan Script', cursive;
+    text-align: center;
   }
 }
 
 .tagline {
+  margin-top: 35px;
   text-align: center;
 }
+
 .tag {
+  padding-top: 45px;
   font-size: 3em;
 }
+
 .sub-tag {
-  padding-top: 30px;
-  font-size: 5.5em;
-  color: black;
-  font-family: 'Arvo', Georgia, Times, serif;
+  padding-top: 10px;
+  font-size: 2.5em;
+  // color: black;
+  // font-family: 'Arvo', Georgia, Times, serif;
 }
 
 /* Buttons */
