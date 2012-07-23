@@ -47,30 +47,36 @@ class Filterer extends Spine.Controller
   filterByState: (e) ->
     @setActiveButton('#state-button')
     @filterActions.removeAttr('style')
-    if @filterActions.children().size() > 0
+    if @filterActions.children().size() > 0 && @filterActions.children()[1].id == "map-container"
       @filterActions.slideUp("slow")
       $(".filter_button").removeClass("active")
       @filterActions.empty()
+    else if @filterActions.children().size() > 0
+      @setActiveButton('#state-button')
+      @filterActions.slideUp("slow").empty()
+      @showMap()
     else
-      @filterActions.append @view('filters/state_loading_filler')
-      @filterActions.append @view('filters/states')
-      $("#map-container").hide().slideDown("slow")
-      priorstate = ""
-      $("#map").usmap click: (event, data) =>
-        if priorstate.name == data.name
-          clearPriorState(data)
-          $("#state-button").attr({'data-api-params':""})
-          $("#state-button .state_text").text("State")
-          priorstate = ""
-          @submitAPIRequest()
-        else
-          if priorstate
-            clearPriorState(priorstate)
-          fillStateAreas(data)
-          $("#state-button .state_text").text "State: "+data.name
-          $("#state-button").attr({'data-api-params': 'filters[]=state='+data.name})
-          priorstate = data
-          @submitAPIRequest()
+      @showMap()
+
+  showMap: ->
+    @filterActions.append @view('filters/state_loading_filler')
+    @filterActions.append @view('filters/states')
+    $("#map-container").slideDown("slow")
+    $("#map").usmap click: (event, data) =>
+      if priorstate.name == data.name
+        clearPriorState(data)
+        $("#state-button").attr({'data-api-params':""})
+        $("#state-button .state_text").text("State")
+        priorstate = ""
+        @submitAPIRequest()
+      else
+        if priorstate
+          clearPriorState(priorstate)
+        fillStateAreas(data)
+        $("#state-button .state_text").text "State: "+data.name
+        $("#state-button").attr({'data-api-params': 'filters[]=state='+data.name})
+        priorstate = data
+        @submitAPIRequest()
 
   clearPriorState = (priorstate) ->
       priorstate.hitArea.attr({fill:"#333", opacity: 0})
