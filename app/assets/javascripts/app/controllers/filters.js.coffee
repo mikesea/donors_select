@@ -16,35 +16,6 @@ class Filterer extends Spine.Controller
   constructor: ->
     super
 
-  filterByState: (e) ->
-    @setActiveButton('#state-button')
-    @filterActions.empty().append @view('filters/states')
-    priorstate = ""
-    $("#map").usmap click: (event, data) =>
-      if priorstate.name == data.name
-        clearPriorState(data)
-        $("#state-button").attr({'data-api-params':""})
-        $("#state-button .state_text").text("State")
-        priorstate = ""
-      else
-        if priorstate
-          clearPriorState(priorstate)
-        fillStateAreas(data)
-        $("#state-button .state_text").text "State: "+data.name
-        $("#state-button").attr({'data-api-params': 'filters[]=state='+data.name})
-        priorstate = data
-        @submitAPIRequest()
-
-  clearPriorState = (priorstate) ->
-      priorstate.hitArea.attr({fill:"#333", opacity: 0})
-      if priorstate.labelHitArea
-        priorstate.labelHitArea.attr({fill:"#333", opacity: 0})
-
-  fillStateAreas = (state) ->
-    state.hitArea.attr({fill:"#FFB71F", opacity: 1})
-    if state.labelHitArea
-      state.labelHitArea.attr({fill:"#FFB71F", opacity: 1})
-
   submitAPIRequest: ->
     state = $("#state-button").attr('data-api-params')
     subject = $("#subject-button").attr('data-api-params')
@@ -71,18 +42,76 @@ class Filterer extends Spine.Controller
 
   loading: ->
     $(".projects-list").empty()
-    $(".projects-list").append "<h1>Loading!</h1>"
+    $(".projects-list").append @view('projects/loading')
+
+  filterByState: (e) ->
+    @setActiveButton('#state-button')
+    @filterActions.removeAttr('style')
+    if @filterActions.children().size() > 0 && @filterActions.children()[1].id == "map-container"
+      @filterActions.slideUp("slow")
+      $(".filter_button").removeClass("active")
+      @filterActions.empty()
+    else if @filterActions.children().size() > 0
+      @setActiveButton('#state-button')
+      @filterActions.slideUp("slow").empty()
+      @showMap()
+    else
+      @showMap()
+
+  showMap: ->
+    @filterActions.append @view('filters/state_loading_filler')
+    @filterActions.append @view('filters/states')
+    $("#map-container").slideDown("slow")
+    $("#map").usmap click: (event, data) =>
+      if priorstate.name == data.name
+        clearPriorState(data)
+        $("#state-button").attr({'data-api-params':""})
+        $("#state-button .state_text").text("State")
+        priorstate = ""
+        @submitAPIRequest()
+      else
+        if priorstate
+          clearPriorState(priorstate)
+        fillStateAreas(data)
+        $("#state-button .state_text").text "State: "+data.name
+        $("#state-button").attr({'data-api-params': 'filters[]=state='+data.name})
+        priorstate = data
+        @submitAPIRequest()
+
+  clearPriorState = (priorstate) ->
+      priorstate.hitArea.attr({fill:"#333", opacity: 0})
+      if priorstate.labelHitArea
+        priorstate.labelHitArea.attr({fill:"#333", opacity: 0})
+
+  fillStateAreas = (state) ->
+    state.hitArea.attr({fill:"#FFB71F", opacity: 1})
+    if state.labelHitArea
+      state.labelHitArea.attr({fill:"#FFB71F", opacity: 1})
 
   filterBySubject: (e) ->
     @setActiveButton('#subject-button')
-    $(".sub-subjects-container").remove()
-    @filterActions.empty()
-    @filterActions.append @view('filters/subjects')
+    @filterActions.removeAttr('style')
+    if @filterActions.children().size() > 0
+      @filterActions.slideUp("slow")
+      $(".filter_button").removeClass("active")
+      @filterActions.empty()
+    else
+      $(".sub-subjects-container").remove()
+      @filterActions.empty().append @view('filters/grade_loading_filler')
+      @filterActions.append @view('filters/subjects')
+      $("#subject-buttons-container").hide().slideDown("slow")
 
   filterByGrade: (e) ->
     @setActiveButton("#grade-button")
-    @filterActions.empty()
-    @filterActions.append @view('filters/grades')
+    @filterActions.removeAttr('style')
+    if @filterActions.children().size() > 0
+      @filterActions.slideUp("slow")
+      $(".filter_button").removeClass("active")
+      @filterActions.empty()
+    else
+      @filterActions.empty().append @view('filters/grade_loading_filler')
+      @filterActions.append @view('filters/grades')
+      $("#grade_buttons").hide().slideDown("slow")
 
   gradeList: (e) ->
     $(".grade_button").removeClass("active")

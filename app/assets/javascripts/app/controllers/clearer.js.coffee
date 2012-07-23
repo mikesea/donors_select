@@ -23,7 +23,6 @@ class Clearer extends Spine.Controller
     $("path").attr "class", "state"
     $("path").attr "fill", "#333"
     $(".filter-actions").empty()
-    $("#filter_buttons").height(130)
     @submitAPIRequest()
 
   submitAPIRequest: ->
@@ -52,7 +51,7 @@ class Clearer extends Spine.Controller
 
   loading: ->
     $(".projects-list").empty()
-    $(".projects-list").append "<h1>Loading!</h1>"
+    $(".projects-list").append @view('projects/loading')
     
 
 window.Clearer = Clearer
