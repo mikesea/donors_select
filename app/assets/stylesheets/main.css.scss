@@ -104,6 +104,10 @@ body {
   margin: 0 auto;
 }
 
+.filter_buttons_container h4 {
+  color: darkGray;
+}
+
 .filter_button {
   font-family: 'Montserrat', sans-serif;
   background-color: $plain;
@@ -115,7 +119,7 @@ body {
   font-size: 36px;
   margin-left: 35px;
   margin-right: 35px;
-  line-height: 2;
+  line-height: 1.5;
 }
 
 .filter_button:hover {
