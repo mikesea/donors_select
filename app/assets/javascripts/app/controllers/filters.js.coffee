@@ -56,12 +56,40 @@ class Filterer extends Spine.Controller
       @filterActions.slideUp("slow").empty()
       @showMap()
     else
-      @showMap()
+      @filterActions.append @view('filters/state_loading_filler')
+      @filterActions.append @view('filters/states')
+      $("#map-container").hide().slideDown("slow")
+      priorstate = ""
+      $("#map").usmap click: (event, data) =>
+        if priorstate.name == data.name
+          clearPriorState(data)
+          $("#state-button").attr({'data-api-params':""})
+          $("#state-button .state_text").text("State")
+          priorstate = ""
+          @submitAPIRequest()
+        else
+          if priorstate
+            clearPriorState(priorstate)
+          fillStateAreas(data)
+          $("#state-button .state_text").text "State: "+data.name
+          $("#state-button").attr({'data-api-params': 'filters[]=state='+data.name})
+          priorstate = data
+          @submitAPIRequest()
+
+  clearPriorState = (priorstate) ->
+      priorstate.hitArea.attr({fill:"#333", opacity: 0})
+      if priorstate.labelHitArea
+        priorstate.labelHitArea.attr({fill:"#333", opacity: 0})
+
+  fillStateAreas = (state) ->
+    state.hitArea.attr({fill:"#FFB71F", opacity: 1})
+    if state.labelHitArea
+      state.labelHitArea.attr({fill:"#FFB71F", opacity: 1})
 
   showMap: ->
     @filterActions.append @view('filters/state_loading_filler')
     @filterActions.append @view('filters/states')
-    $("#map-container").slideDown("slow")
+    $("#map-container").hide().slideDown("slow")
     $("#map").usmap click: (event, data) =>
       if priorstate.name == data.name
         clearPriorState(data)
@@ -77,16 +105,6 @@ class Filterer extends Spine.Controller
         $("#state-button").attr({'data-api-params': 'filters[]=state='+data.name})
         priorstate = data
         @submitAPIRequest()
-
-  clearPriorState = (priorstate) ->
-      priorstate.hitArea.attr({fill:"#333", opacity: 0})
-      if priorstate.labelHitArea
-        priorstate.labelHitArea.attr({fill:"#333", opacity: 0})
-
-  fillStateAreas = (state) ->
-    state.hitArea.attr({fill:"#FFB71F", opacity: 1})
-    if state.labelHitArea
-      state.labelHitArea.attr({fill:"#FFB71F", opacity: 1})
 
   filterBySubject: (e) ->
     @setActiveButton('#subject-button')
