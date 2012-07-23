@@ -56,6 +56,7 @@ class Filterer extends Spine.Controller
         $("#state-button").attr({'data-api-params':""})
         $("#state-button .state_text").text("State")
         priorstate = ""
+        @submitAPIRequest()
       else
         if priorstate
           clearPriorState(priorstate)
