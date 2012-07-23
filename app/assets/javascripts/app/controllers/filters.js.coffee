@@ -164,10 +164,7 @@ class Filterer extends Spine.Controller
     sub_subject_buttons.show()
     $("#subject-button .subject_text").text(subject_button.text())
     $("#subject-button").attr({'data-api-params': subject_button.attr('data-api-params')})
-    if subject_button.hasClass("short")
-      removeClass("shrink")
-    else
-      $("#subject-button").addClass("shrink")
+    $("#subject-button").removeClass("shrink")
     @submitAPIRequest()
 
   showSpecialNeeds: (e) ->

@@ -1,0 +1,1 @@
+worker: VERBOSE=TRUE QUEUE=* bundle exec rake environment resque:work
