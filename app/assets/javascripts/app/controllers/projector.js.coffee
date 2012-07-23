@@ -11,7 +11,7 @@ class Projector extends Spine.Controller
 
   constructor: ->
     super
-    Project.bind 'create', @addLarge
+    Project.bind 'create', @addProject
     Project.bind 'refresh', @addAll
     Project.fetch()
     Project.bind "refresh", @checkRecommendation
