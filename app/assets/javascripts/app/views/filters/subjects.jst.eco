@@ -1,18 +1,18 @@
 <div id="subject-buttons-container">
   <div class="btn well span3 subject" id="math_and_science" data-api-params="filters[]=subject4=-4">Math & Science</div>
-  <div class="btn well span3 subject short" id="music_and_the_arts" data-api-params="filters[]=subject1=-1">Music & Arts</div>
-  <div class="btn well span3 subject" id="literacy_and_language" data-api-params="filters[]=subject6=-6">Literacy & Language</div>
-  <div class="btn well span3 subject short" id="history_and_civics" data-api-params="filters[]=subject3=-3">History & Civics</div>
+  <div class="btn well span3 subject" id="music_and_the_arts" data-api-params="filters[]=subject1=-1">Music & Arts</div>
+  <div class="btn well span3 subject" id="literacy_and_language" data-api-params="filters[]=subject6=-6">Language Arts</div>
+  <div class="btn well span3 subject" id="history_and_civics" data-api-params="filters[]=subject3=-3">History & Civics</div>
   <div class="btn well span3 special-needs" id="special_needs" data-api-params="filters[]=subject7=-7">Special Needs</div>
   <div class="btn well span3 subject" id="applied_learning" data-api-params="filters[]=subject5=-5">Applied Learning</div>
-  <div class="btn well span3 subject short" id="health_and_sports" data-api-params="filters[]=subject2=-2">Health & Sports</div>
+  <div class="btn well span3 subject" id="health_and_sports" data-api-params="filters[]=subject2=-2">Health & Sports</div>
 </div>
 
 <div style="display: none" class ="sub-subjects-container" id="math_and_science_subjects">
   <div class="btn well span3 sub-subject" id="Environmental Science" data-api-params="filters[]=subject4=7">Environmental Science</div>
   <div class="btn well span3 sub-subject short" id="Mathematics" data-api-params="filters[]=subject4=8">Mathematics</div>
   <div class="btn well span3 sub-subject" id="Health and Life Sciences" data-api-params="filters[]=subject4=4">Health & Life Science</div>
-  <div class="btn well span3 sub-subject" id="Applied Sciences" data-api-params="filters[]=subject4=6">Applied Sciences</div>
+  <div class="btn well span3 sub-subject short" id="Applied Sciences" data-api-params="filters[]=subject4=6">Applied Sciences</div>
 </div>
 
 <div style="display: none" class ="sub-subjects-container" id="music_and_the_arts_subjects">
