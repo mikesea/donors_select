@@ -1,6 +1,9 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = Project.find_by(params[:filters], cookies.signed[:token])
+    unless @projects = Project.find_by(params[:filters])
+      Project.fetch_and_publish(params[:filters], cookies.signed[:token])
+    end
   end
+
 end
