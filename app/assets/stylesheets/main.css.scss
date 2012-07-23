@@ -270,6 +270,7 @@ body {
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2);
   background: #F0F0F0;
+  min-height: 375px;
 }
 
 .container {
@@ -281,9 +282,6 @@ body {
   width: 732px;
 }
 
-.projects-container {
-}
-
 .project-spotlight {
   -webkit-border-top-right-radius: 9px;
   -moz-border-radius-topright: 9px;
@@ -291,28 +289,23 @@ body {
   -webkit-border-bottom-right-radius: 9px;
   -moz-border-radius-bottomright: 9px;
   border-bottom-right-radius: 9px;
-  margin-top: -120px;
+  padding-bottom: 17px;
+  margin-top: -112px;
   float: left;
   width: 400px;
   background: darkgray;
-  height: 364px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  .test {
-    background: $plain;
+  box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.2), 5px 0 5px -5px rgba(0, 0, 0, 0.2), 0 5px 5px -5px rgba(0, 0, 0, 0.2);
+  .spotlight-inner {
+    background: #F0F0F0;
     margin-top: 17px;
     margin-right: 17px;
-    height: 330px;
     -webkit-border-top-right-radius: 9px;
     -moz-border-radius-topright: 9px;
     border-top-right-radius: 9px;
     -webkit-border-bottom-right-radius: 9px;
     -moz-border-radius-bottomright: 9px;
     border-bottom-right-radius: 9px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.2), 5px 0 5px -5px rgba(0, 0, 0, 0.2), 0 5px 5px -5px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -335,34 +328,14 @@ body {
     -webkit-filter: grayscale(0);
 }
 
-/* These change the formatting of the projects grid based on number of projects. */
-.large-projects {
+/* This formats the projects grid. */
+.project-data {
   display: inline;
   list-style-type: none;
-  margin: 10px;
+  margin: 11px;
   img {
-    width: 203px;
+    width: 119px;
     padding-bottom: 20px;
-  }
-}
-
-.medium-projects {
-  display: inline;
-  list-style-type: none;
-  margin: 10px;
-  img {
-    width: 118px;
-    padding-bottom: 20px;
-  }
-}
-
-.small-projects {
-  display: inline;
-  list-style-type: none;
-  margin: 12px;
-  img {
-    width: 60px;
-    padding-bottom: 24px;
   }
 }
 
