@@ -322,14 +322,23 @@ body {
 
 /* This formats the project images - grayscale */
 .project-image {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2);
   filter: url('/assets/filters.svg#grayscale'); /* Firefox 3.5+ */
   filter: gray; /* IE6-9 */
   -webkit-filter: grayscale(1); /* Google Chrome & Safari 6+ */
 }
 
 .project-image:hover {
-    filter: none;
-    -webkit-filter: grayscale(0);
+  box-shadow: 0 0 5px $darkBlue;
+  -webkit-box-shadow: 0 0 5px $darkBlue;
+  -moz-box-shadow: 0 0 5px $darkBlue;
+  filter: none;
+  -webkit-filter: grayscale(0);
 }
 
 /* This formats the projects grid. */
@@ -339,7 +348,7 @@ body {
   margin: 11px;
   img {
     width: 119px;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
   }
 }
 
