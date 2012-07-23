@@ -287,17 +287,15 @@ body {
   -moz-border-radius-bottomright: 9px;
   border-bottom-right-radius: 9px;
   padding-bottom: 17px;
+  margin-top: -112px;
   float: left;
   width: 400px;
   background: darkgray;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  // z-index:10;
-  // position:fixed;
-  // top:49%; left:60%;
   .spotlight-inner {
-    background: $plain;
+    background: #F0F0F0;
     margin-top: 17px;
     margin-right: 17px;
     -webkit-border-top-right-radius: 9px;
