@@ -1,1 +1,3 @@
-<div id="map" style="width: 930px; height: 630px;"></div>
+<div id="map-container">
+	<div id="map" style="width: 930px; height: 630px;"></div>
+</div>
