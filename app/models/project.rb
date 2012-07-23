@@ -21,7 +21,8 @@ class Project
   end
 
   def self.fetch_and_publish(params, user_token)
-    Resque.enqueue Fetcher, build_uri(params), user_token
+    uri = build_uri(params)
+    Resque.enqueue Fetcher, uri, user_token
   end
 
   def self.build_uri(params=nil)
