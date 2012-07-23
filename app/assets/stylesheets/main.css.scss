@@ -97,6 +97,10 @@ body {
   margin: 0 auto;
 }
 
+.filter_buttons_container h4 {
+  color: darkGray;
+}
+
 .filter_button {
   font-family: 'Montserrat', sans-serif;
   background-color: $plain;
@@ -108,7 +112,7 @@ body {
   font-size: 36px;
   margin-left: 35px;
   margin-right: 35px;
-  line-height: 2;
+  line-height: 1.5;
 }
 
 .filter_button:hover {
@@ -127,8 +131,9 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: 75px;
+  padding-top: 5px;
   width: 600px;
-  height: 100px;
+  height: 60px;
 }
 
 .grade_button {
@@ -138,6 +143,7 @@ body {
   text-align: center;
   font-size: 24px;
   width: 100px;
+  margin-top: 10px;
   margin-right: 10px;
   margin-left: 10px;
 }
@@ -190,7 +196,7 @@ body {
 
 #subject-buttons-container {
   width: 1200px;
-  height: 50px;
+  height: 150px;
   margin: 0 auto;
   float: center;
   margin-top: 80px;
@@ -367,3 +373,13 @@ body {
   height: 300px;
 }
 
+/* Loading Filler */
+
+#state-loading-filler {
+  height: 70px;
+}
+
+#grade-loading-filler {
+  height: 2px;
+  width: 100%;
+}

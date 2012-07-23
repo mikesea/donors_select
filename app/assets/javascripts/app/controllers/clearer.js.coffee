@@ -11,20 +11,36 @@ class Clearer extends Spine.Controller
     super
 
   clearFilters: (e) ->
-    $(".filter_button").removeClass("active")
-    $(".grade_button").removeClass("active")
-    $("#state-button .state_text").text("State")
-    $("#grade-button .grade_text").text("Grade")
-    $("#subject-button .subject_text").text("Subject")
-    $("#subject-button").removeClass("shrink")
-    $("#state-button").attr({'data-api-params':""})
-    $("#subject-button").attr({'data-api-params':""})
-    $("#grade-button").attr({'data-api-params':""})
-    $("path").attr "class", "state"
-    $("path").attr "fill", "#333"
-    $(".filter-actions").empty()
-    $("#filter_buttons").height(130)
-    @submitAPIRequest()
+    if $(".filter-actions").children().size() > 0
+      $(".filter-actions").slideUp("slow")
+      $(".filter_button").removeClass("active")
+      $(".filter_button").removeClass("active")
+      $(".grade_button").removeClass("active")
+      $("#state-button .state_text").text("State")
+      $("#grade-button .grade_text").text("Grade")
+      $("#subject-button .subject_text").text("Subject")
+      $("#subject-button").removeClass("shrink")
+      $("#state-button").attr({'data-api-params':""})
+      $("#subject-button").attr({'data-api-params':""})
+      $("#grade-button").attr({'data-api-params':""})
+      $("path").attr "class", "state"
+      $("path").attr "fill", "#333"
+      $(".filter-actions").empty()
+      @submitAPIRequest()
+    else
+      $(".filter_button").removeClass("active")
+      $(".grade_button").removeClass("active")
+      $("#state-button .state_text").text("State")
+      $("#grade-button .grade_text").text("Grade")
+      $("#subject-button .subject_text").text("Subject")
+      $("#subject-button").removeClass("shrink")
+      $("#state-button").attr({'data-api-params':""})
+      $("#subject-button").attr({'data-api-params':""})
+      $("#grade-button").attr({'data-api-params':""})
+      $("path").attr "class", "state"
+      $("path").attr "fill", "#333"
+      $(".filter-actions").empty()
+      @submitAPIRequest()
 
   submitAPIRequest: ->
     state = $("#state-button").attr('data-api-params')
@@ -52,7 +68,7 @@ class Clearer extends Spine.Controller
 
   loading: ->
     $(".projects-list").empty()
-    $(".projects-list").append "<h1>Loading!</h1>"
+    $(".projects-list").append @view('projects/loading')
     
 
 window.Clearer = Clearer
