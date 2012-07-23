@@ -1,1 +1,1 @@
-json.count @data["totalProposals"].to_i
+json.count @data["totalProposals"].to_i if @data
