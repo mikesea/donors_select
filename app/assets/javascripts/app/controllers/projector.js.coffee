@@ -52,7 +52,6 @@ class Projector extends Spine.Controller
     $('.test').empty()
     $('.test').append @recommendationTemplate(project)
 
-
   smallTemplate: (project) ->
     @view('projects/small_project')(project:
       project)
