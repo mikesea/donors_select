@@ -44,35 +44,28 @@ body {
 
 #logo-nav {
   background-color: $plain;
-  background-image: url();
-  background-repeat: no-repeat;
-  background-position: top left;
   padding: 15px;
-  height: 250px;
-  h2 {
-    padding-top: 40px;
+  height: 100px;
+  .logo h2 {
     color: black;
-    font-size: 8em;
+    font-size: 800%;
     font-family: 'Kaushan Script', cursive;
     text-align: center;
+    margin-top: 30px;
+    padding-left: 12.2%;
+    float: left;
   }
-}
-
-.tagline {
-  margin-top: 35px;
-  text-align: center;
-}
-
-.tag {
-  padding-top: 45px;
-  font-size: 3em;
-}
-
-.sub-tag {
-  padding-top: 10px;
-  font-size: 2.5em;
-  // color: black;
-  // font-family: 'Arvo', Georgia, Times, serif;
+  .tagline {
+    margin-left: 20px;
+    float: left;
+    .tag {
+      margin-top: 15px;
+      font-size: 1.89em;
+    }
+    .sub-tag {
+      font-size: 4em;
+    }
+  }
 }
 
 /* Buttons */
@@ -102,6 +95,11 @@ body {
   width: 1200px;
   height: 50px;
   margin: 0 auto;
+  margin-left: 345px;
+}
+
+.filter_buttons_container h4 {
+  color: darkGray;
 }
 
 .filter_button {
@@ -113,9 +111,10 @@ body {
   border-radius: 5px;
   text-align: center;
   font-size: 36px;
-  margin-left: 35px;
-  margin-right: 35px;
-  line-height: 2;
+  margin-left: 20px;
+  margin-right: 20px;
+  line-height: 1.5;
+  width: 320px;
 }
 
 .filter_button:hover {
@@ -324,14 +323,23 @@ body {
 
 /* This formats the project images - grayscale */
 .project-image {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2);
   filter: url('/assets/filters.svg#grayscale'); /* Firefox 3.5+ */
   filter: gray; /* IE6-9 */
   -webkit-filter: grayscale(1); /* Google Chrome & Safari 6+ */
 }
 
 .project-image:hover {
-    filter: none;
-    -webkit-filter: grayscale(0);
+  box-shadow: 0 0 5px $darkBlue;
+  -webkit-box-shadow: 0 0 5px $darkBlue;
+  -moz-box-shadow: 0 0 5px $darkBlue;
+  filter: none;
+  -webkit-filter: grayscale(0);
 }
 
 /* This formats the projects grid. */
@@ -341,7 +349,7 @@ body {
   margin: 11px;
   img {
     width: 119px;
-    padding-bottom: 20px;
+    margin-bottom: 20px;
   }
 }
 
