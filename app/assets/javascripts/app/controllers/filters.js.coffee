@@ -21,6 +21,7 @@ class Filterer extends Spine.Controller
     state = $("#state-button").attr('data-api-params')
     subject = $("#subject-button").attr('data-api-params')
     grade = $("#grade-button").attr('data-api-params')
+    @addClearer()
     @loading()
     $.ajax
       type: 'get',
@@ -44,6 +45,10 @@ class Filterer extends Spine.Controller
   loading: ->
     $(".projects-list").empty()
     $(".projects-list").append @view('projects/loading')
+
+  addClearer: ->
+    unless $("#clear-filters").is(':visible')
+      $("#clear-filters").fadeIn()
 
   filterByState: (e) ->
     @setActiveButton('#state-button')
