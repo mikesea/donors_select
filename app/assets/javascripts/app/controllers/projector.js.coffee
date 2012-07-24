@@ -15,6 +15,7 @@ class Projector extends Spine.Controller
     Project.bind 'refresh', @addAll
     Project.fetch()
     Project.bind "refresh", @checkRecommendation
+    Project.bind "create", @checkRecommendation
     ProjectsCount.bind "refresh", @updateCount
     ProjectsCount.bind "create", @updateCount
     ProjectsCount.fetch()
@@ -31,8 +32,7 @@ class Projector extends Spine.Controller
       @addProject(project)
 
   checkRecommendation: =>
-    if Project.all().length <= 1000
-      @displayRecommendation(Project.first())
+    @displayRecommendation(Project.first())
 
   addProject: (project) =>
     @projects.append @projectTemplate(project)
