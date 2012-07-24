@@ -1,4 +1,5 @@
 <div class="recommendation">
+  <h2>Your Best Match</h2>
   <h3><%- @project.title %></h3>
   <a href="<%= @project.proposalURL %>"><img src="<%= @project.imageURL %>"></img></a>
   <p />
