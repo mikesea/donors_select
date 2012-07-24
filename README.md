@@ -14,6 +14,12 @@ DonorsSelect uses Redis and Resque to cache project data for quicker load times.
 3. start redis with <code>redis-server /usr/local/etc/redis.conf</code>
 4. start the resque job with <code>QUEUE=* rake environment resque:work VERBOSE=true</code>
 
+#Tests
+To run the tests, after cloning the repo, simply run:
+```
+$ rake spec
+```
+
 #That's it!
 We hope you enjoy DonorsSelect!
 
