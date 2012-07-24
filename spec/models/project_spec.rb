@@ -6,13 +6,13 @@ describe "Project" do
 
       it "builds a valid URI when no params are specified" do
         uri = Project.build_uri
-        uri.should == "http://api.donorschoose.org/common/json_feed.html?max=50&APIKey=DONORSCHOOSE"
+        uri.should == "http://api.donorschoose.org/common/json_feed.html?max=20&APIKey=DONORSCHOOSE"
       end
 
       it "builds a valid URI when params are specified" do
         params = ["gradeType=3"]
         uri = Project.build_uri(params)
-        uri.should == "http://api.donorschoose.org/common/json_feed.html?max=50&APIKey=DONORSCHOOSE&gradeType=3"
+        uri.should == "http://api.donorschoose.org/common/json_feed.html?max=20&APIKey=DONORSCHOOSE&gradeType=3"
       end
     end
 
