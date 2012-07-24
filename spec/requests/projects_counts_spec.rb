@@ -26,7 +26,7 @@ describe "ProjectsCountsController" do
         get projects_counts_url(format: :json)
       end
 
-      it "returns no projects and queues a job to fetch them" do
+      it "returns an empty hash" do
         response_json = JSON.parse(response.body)
         response_json.should be {}
       end
