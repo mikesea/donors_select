@@ -21,17 +21,17 @@ class Filterer extends Spine.Controller
     state = $("#state-button").attr('data-api-params')
     subject = $("#subject-button").attr('data-api-params')
     grade = $("#grade-button").attr('data-api-params')
+    @loading()
     $.ajax
       type: 'get',
       url: 'projects.json',
       data: state + "&" + subject + "&" + grade
       success: (projects) ->
         Project.deleteAll()
-        $(".projects-list").empty()
+        if projects.length > 0
+          $(".projects-list").empty()      
         for project in projects
           Project.create(project, {ajax: false})
-
-    @loading()
 
     $.ajax
       type: 'get',
