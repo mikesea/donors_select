@@ -42,29 +42,33 @@ body {
   background-image: none;
 }
 
-#logo-nav {
-  background-color: lightgray;
-  padding: 15px;
-  height: 100px;
-  .logo h2 {
+#header {
+  background-color: darkgray;
+  height: 130px;
+}
+#logo-outer {
+  margin: 0 auto;
+  padding-left: 30px;
+  width: 1200px;
+  #logo-left h2 {
     color: black;
     font-size: 800%;
     font-family: 'Kaushan Script', cursive;
     text-align: center;
-    margin-top: 30px;
-    padding-left: 15%;
+    margin-top: 45px;
     float: left;
-    text-shadow: 0px 4px 0px white;
+    text-shadow: 0px 4px 0px #f0f0f0;
   }
-  .tagline {
-    color: #999;
+  #tagline-right {
+    color: #f0f0f0;
+    margin-top: 15px;
     margin-left: 20px;
     float: left;
-    .tag {
+    #main-tag {
       margin-top: 15px;
       font-size: 1.81em;
     }
-    .sub-tag {
+    #sub-tag {
       font-size: 3.85em;
     }
   }
@@ -389,6 +393,23 @@ body {
   img {
     padding-top: 10px;
   }
+}
+
+.btn-donate {
+  background-color: hsl(218, 100%, 37%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2374fe", endColorstr="#0045bc");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#2374fe), to(#0045bc));
+  background-image: -moz-linear-gradient(top, #2374fe, #0045bc);
+  background-image: -ms-linear-gradient(top, #2374fe, #0045bc);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #2374fe), color-stop(100%, #0045bc));
+  background-image: -webkit-linear-gradient(top, #2374fe, #0045bc);
+  background-image: -o-linear-gradient(top, #2374fe, #0045bc);
+  background-image: linear-gradient(#2374fe, #0045bc);
+  border-color: #0045bc #0045bc hsl(218, 100%, 32%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33);
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Footer */
