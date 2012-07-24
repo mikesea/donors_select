@@ -53,8 +53,27 @@ class Filterer extends Spine.Controller
       @filterActions.empty()
     else if @filterActions.children().size() > 0
       @setActiveButton('#state-button')
-      @filterActions.slideUp("slow").empty()
-      @showMap()
+      $(".filter-actions :nth-child(2)").slideUp("slow")
+      @filterActions.empty()
+      @filterActions.append @view('filters/state_loading_filler')
+      @filterActions.append @view('filters/states')
+      $("#map-container").hide().slideDown("slow")
+      priorstate = ""
+      $("#map").usmap click: (event, data) =>
+        if priorstate.name == data.name
+          clearPriorState(data)
+          $("#state-button").attr({'data-api-params':""})
+          $("#state-button .state_text").text("State")
+          priorstate = ""
+          @submitAPIRequest()
+        else
+          if priorstate
+            clearPriorState(priorstate)
+          fillStateAreas(data)
+          $("#state-button .state_text").text "State: "+data.name
+          $("#state-button").attr({'data-api-params': 'filters[]=state='+data.name})
+          priorstate = data
+          @submitAPIRequest()
     else
       @filterActions.append @view('filters/state_loading_filler')
       @filterActions.append @view('filters/states')
@@ -86,33 +105,21 @@ class Filterer extends Spine.Controller
     if state.labelHitArea
       state.labelHitArea.attr({fill:"#FFB71F", opacity: 1})
 
-  showMap: ->
-    @filterActions.append @view('filters/state_loading_filler')
-    @filterActions.append @view('filters/states')
-    $("#map-container").hide().slideDown("slow")
-    $("#map").usmap click: (event, data) =>
-      if priorstate.name == data.name
-        clearPriorState(data)
-        $("#state-button").attr({'data-api-params':""})
-        $("#state-button .state_text").text("State")
-        priorstate = ""
-        @submitAPIRequest()
-      else
-        if priorstate
-          clearPriorState(priorstate)
-        fillStateAreas(data)
-        $("#state-button .state_text").text "State: "+data.name
-        $("#state-button").attr({'data-api-params': 'filters[]=state='+data.name})
-        priorstate = data
-        @submitAPIRequest()
-
   filterBySubject: (e) ->
     @setActiveButton('#subject-button')
     @filterActions.removeAttr('style')
-    if @filterActions.children().size() > 0
+    if @filterActions.children().size() > 0 && @filterActions.children()[1].id == "subject-buttons-container"
       @filterActions.slideUp("slow")
       $(".filter_button").removeClass("active")
       @filterActions.empty()
+    else if @filterActions.children().size() > 0
+      @setActiveButton('#subject-button')
+      $(".filter-actions :nth-child(2)").slideUp("slow")
+      @filterActions.empty()
+      $(".sub-subjects-container").remove()
+      @filterActions.empty().append @view('filters/grade_loading_filler')
+      @filterActions.append @view('filters/subjects')
+      $("#subject-buttons-container").hide().slideDown("slow")
     else
       $(".sub-subjects-container").remove()
       @filterActions.empty().append @view('filters/grade_loading_filler')
@@ -122,14 +129,20 @@ class Filterer extends Spine.Controller
   filterByGrade: (e) ->
     @setActiveButton("#grade-button")
     @filterActions.removeAttr('style')
-    if @filterActions.children().size() > 0
+    if @filterActions.children().size() > 0 && @filterActions.children()[1].id == "grade-buttons-container"
       @filterActions.slideUp("slow")
       $(".filter_button").removeClass("active")
       @filterActions.empty()
+    else if @filterActions.children().size() > 0
+      @setActiveButton('#grade-button')
+      $(".filter-actions :nth-child(2)").slideUp("slow")
+      @filterActions.empty().append @view('filters/grade_loading_filler')
+      @filterActions.append @view('filters/grades')
+      $("#grade-buttons-container").hide().slideDown("slow")
     else
       @filterActions.empty().append @view('filters/grade_loading_filler')
       @filterActions.append @view('filters/grades')
-      $("#grade_buttons").hide().slideDown("slow")
+      $("#grade-buttons-container").hide().slideDown("slow")
 
   gradeList: (e) ->
     $(".grade_button").removeClass("active")
@@ -152,14 +165,10 @@ class Filterer extends Spine.Controller
     sub_subject_buttons.show()
     $("#subject-button .subject_text").text(subject_button.text())
     $("#subject-button").attr({'data-api-params': subject_button.attr('data-api-params')})
-    if subject_button.hasClass("short")
-      removeClass("shrink")
-    else
-      $("#subject-button").addClass("shrink")
+    $("#subject-button").removeClass("append_sub_subject")
     @submitAPIRequest()
 
   showSpecialNeeds: (e) ->
-    $("#subject-button").removeClass("shrink")
     $("#subject-button .subject_text").text("Special Needs")
     $("#subject-button").attr({'data-api-params': $(e.target).attr('data-api-params')})
     $(".sub-subjects-container").hide()
@@ -169,13 +178,11 @@ class Filterer extends Spine.Controller
 
   changeButtonText: (e) ->
     $(".sub-subject").removeClass("active")
+    $('.add-sub-subject').remove()
     sub_subject_button = $(e.target)
     sub_subject_button.addClass("active")
-    if sub_subject_button.hasClass("short")
-      $("#subject-button").removeClass("shrink")
-    else
-      $("#subject-button").addClass("shrink")
-    $("#subject-button .subject_text").text(sub_subject_button.text())
+    $("#subject-button .subject_text").append("<span class='add-sub-subject'><hr/>#{sub_subject_button.text()}</span>")
+    $("#subject-button").addClass("append_sub_subject")
     $("#subject-button").attr({'data-api-params': sub_subject_button.attr('data-api-params')})
     @submitAPIRequest()
 

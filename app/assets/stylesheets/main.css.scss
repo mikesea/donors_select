@@ -97,6 +97,7 @@ body {
   width: 1200px;
   height: 50px;
   margin: 0 auto;
+  margin-left: 345px;
 }
 
 .filter_buttons_container h4 {
@@ -112,9 +113,10 @@ body {
   border-radius: 5px;
   text-align: center;
   font-size: 36px;
-  margin-left: 35px;
-  margin-right: 35px;
+  margin-left: 20px;
+  margin-right: 20px;
   line-height: 1.5;
+  width: 320px;
 }
 
 .filter_button:hover {
@@ -129,7 +131,26 @@ body {
   box-shadow: inset 5px 5px 10px #888;
 }
 
-#grade_buttons {
+.filter_button hr {
+  margin-top: 3px;
+  margin-bottom: 0px;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: darkGray;
+  border-bottom-width: 0px;
+}
+
+.append_sub_subject {
+  line-height: 1.2;
+  font-size: 30px;
+}
+
+.add-sub-subject {
+  font-size: 20px;
+  line-height: 1;
+}
+
+#grade-buttons-container {
   margin-left: auto;
   margin-right: auto;
   margin-top: 75px;
