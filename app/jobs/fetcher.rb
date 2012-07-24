@@ -1,21 +1,24 @@
 class Fetcher
-  @queue = :projects
+  @queue = :fetch
 
   def self.perform(uri, user_token)
-    unless Project.redis.get uri
-      json = JSON.parse(Net::HTTP.get(URI(uri))).to_json
-      Project.redis.set uri, json
+    unless is_set?(uri)
+      response = fetch_projects(uri)
+      response_json = JSON.parse(response)
+      $redis.set uri, response_json.to_json
     end
-    publish(JSON.parse(Project.redis.get(uri)), user_token) if user_token
+    json = JSON.parse($redis.get(uri))
+    Resque.enqueue Publisher, json, user_token if user_token
   end
 
 private
 
-  def self.publish(projects_json, user_token)
-    Pusher[user_token].trigger(
-      'projects_fetch', {
-        projects: projects_json
-      }
-    )
+  def self.is_set?(uri)
+    $redis.keys.include? uri
   end
+
+  def self.fetch_projects(uri)
+    Net::HTTP.get(URI(uri))
+  end
+
 end
