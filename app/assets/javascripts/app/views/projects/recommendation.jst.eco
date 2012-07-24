@@ -1,8 +1,8 @@
 <div class="recommendation">
   <h2>Your Best Match</h2>
   <h3><%- @project.title %></h3>
-  <a href="<%= @project.proposalURL %>"><img src="<%= @project.imageURL %>"></img></a>
+  <a href="<%= @project.proposalURL %>" target="_blank"><img src="<%= @project.imageURL %>"></img></a>
   <p />
   <p><%- @project.shortDescription %></p>
-  <a class="btn btn-large btn-donate" href="<%= @project.proposalURL %>">Donate now!</a>
+  <a class="btn btn-large btn-donate" href="<%= @project.proposalURL %>" target="_blank">Donate now!</a>
 </div>
