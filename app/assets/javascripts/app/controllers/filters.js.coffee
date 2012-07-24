@@ -4,7 +4,6 @@ class Filterer extends Spine.Controller
   elements:
     ".filter-actions" : "filterActions"
 
-
   events:
     "click #state-button" : "filterByState"
     "click #subject-button" : "filterBySubject"
@@ -83,14 +82,16 @@ class Filterer extends Spine.Controller
         @submitAPIRequest()
       
   clearPriorState = (priorstate) ->
-      priorstate.hitArea.attr({fill:"#333", opacity: 0})
-      if priorstate.labelHitArea
-        priorstate.labelHitArea.attr({fill:"#333", opacity: 0})
+    emptyStateColor = "#333"
+    priorstate.hitArea.attr({fill: emptyStateColor, opacity: 0})
+    if priorstate.labelHitArea
+      priorstate.labelHitArea.attr({fill: emptyStateColor, opacity: 0})
 
   fillStateAreas = (state) ->
-    state.hitArea.attr({fill:"#FFB71F", opacity: 1})
+    stateColor = "#FFB71F"
+    state.hitArea.attr({fill: stateColor, opacity: 1})
     if state.labelHitArea
-      state.labelHitArea.attr({fill:"#FFB71F", opacity: 1})
+      state.labelHitArea.attr({fill: stateColor, opacity: 1})
 
   filterBySubject: (e) ->
     @setActiveButton('#subject-button')
