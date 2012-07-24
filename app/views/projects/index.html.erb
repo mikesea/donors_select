@@ -4,7 +4,70 @@
       <div class="filter_button btn btn-large well span4" id="subject-button" data-api-params=""><h4>- search by -</h4><span class="subject_text">Subject</span></div>
       <div class="filter_button btn btn-large well span4" id="grade-button" data-api-params=""><h4>- search by -</h4><span class="grade_text">Grade<span></div>
     </div>
-  <div class="filter-actions"></div>
+  <div class="filter-actions">
+    <div id="map-container" style="display: none">
+      <div id="map" style="width: 930px; height: 630px;"></div>
+    </div>
+    <div id="grade-buttons-container" style="display: none">
+      <div class="grade_button btn btn-large" id="Grades PreK-2" data-api-params="filters[]=gradeType=1">PreK-2</div>
+      <div class="grade_button btn btn-large" id="Grades 3-5" data-api-params="filters[]=gradeType=2">3-5</div>
+      <div class="grade_button btn btn-large" id="Grades 6-8" data-api-params="filters[]=gradeType=3">6-8</div>
+      <div class="grade_button btn btn-large" id="Grades 9-12" data-api-params="filters[]=gradeType=4">9-12</div>
+    </div>
+    <div id="subject-buttons-container" style="display: none">
+      <div class="btn well span3 subject" id="math_and_science" data-api-params="filters[]=subject4=-4">Math & Science</div>
+      <div class="btn well span3 subject" id="music_and_the_arts" data-api-params="filters[]=subject1=-1">Music & Arts</div>
+      <div class="btn well span3 subject" id="literacy_and_language" data-api-params="filters[]=subject6=-6">Language Arts</div>
+      <div class="btn well span3 subject" id="history_and_civics" data-api-params="filters[]=subject3=-3">History & Civics</div>
+      <div class="btn well span3 special-needs" id="special_needs" data-api-params="filters[]=subject7=-7">Special Needs</div>
+      <div class="btn well span3 subject" id="applied_learning" data-api-params="filters[]=subject5=-5">Applied Learning</div>
+      <div class="btn well span3 subject" id="health_and_sports" data-api-params="filters[]=subject2=-2">Health & Sports</div>
+    </div>
+
+    <div style="display: none" class ="sub-subjects-container" id="math_and_science_subjects">
+      <div class="btn well span3 sub-subject" id="Environmental Science" data-api-params="filters[]=subject4=7">Environmental Science</div>
+      <div class="btn well span3 sub-subject short" id="Mathematics" data-api-params="filters[]=subject4=8">Mathematics</div>
+      <div class="btn well span3 sub-subject" id="Health and Life Sciences" data-api-params="filters[]=subject4=4">Health & Life Science</div>
+      <div class="btn well span3 sub-subject short" id="Applied Sciences" data-api-params="filters[]=subject4=6">Applied Sciences</div>
+    </div>
+
+    <div style="display: none" class ="sub-subjects-container" id="music_and_the_arts_subjects">
+      <div class="btn well span3 sub-subject short" id="Performing Arts" data-api-params="filters[]=subject1=1">Performing Arts</div>
+      <div class="btn well span3 sub-subject short" id="Visual Arts" data-api-params="filters[]=subject1=11">Visual Arts</div>
+      <div class="btn well span3 sub-subject short" id="Music" data-api-params="filters[]=subject1=12">Music</div>
+    </div>
+
+    <div style="display: none" class ="sub-subjects-container" id="literacy_and_language_subjects">
+      <div class="btn well span3 sub-subject short" id="Literacy" data-api-params="filters[]=subject6=10">Literacy</div>
+      <div class="btn well span3 sub-subject" id="Literature and Writing" data-api-params="filters[]=subject6=3">Literature & Writing</div>
+      <div class="btn well span3 sub-subject" id="Foreign Languages" data-api-params="filters[]=subject6=22">Foreign Languages</div>
+      <div class="btn well span3 sub-subject short" id="ESL" data-api-params="filters[]=subject6=25">ESL</div>
+    </div>
+
+    <div style="display: none" class ="sub-subjects-container" id="history_and_civics_subjects">
+      <div class="btn well span3 sub-subject" id="History and Geography" data-api-params="filters[]=subject3=9">History & Geography</div>
+      <div class="btn well span3 sub-subject" id="Civics and Government" data-api-params="filters[]=subject3=13">Civics & Government</div>
+      <div class="btn well span3 sub-subject short" id="Economics" data-api-params="filters[]=subject3=14">Economics</div>
+      <div class="btn well span3 sub-subject short" id="Social Sciences" data-api-params="filters[]=subject3=15">Social Sciences</div>
+    </div>
+
+    <div style="display: none" class ="sub-subjects-container" id="applied_learning_subjects">
+      <div class="btn well span3 sub-subject" id="Early Development" data-api-params="filters[]=subject5=18">Early Development</div>
+      <div class="btn well span3 sub-subject" id="Community Service" data-api-params="filters[]=subject5=21">Community Service</div>
+      <div class="btn well span3 sub-subject" id="Character Education" data-api-params="filters[]=subject5=26">Character Education</div>
+      <div class="btn well span3 sub-subject" id="College and Career Prep" data-api-params="filters[]=subject5=16">College & Career Prep</div>
+      <div class="btn well span3 sub-subject short" id="Extracurricular" data-api-params="filters[]=subject5=17">Extracurricular</div>
+      <div class="btn well span3 sub-subject" id="Parent Involvement" data-api-params="filters[]=subject5=20">Parent Involvement</div>
+      <div class="btn well span3 sub-subject short" id="Other" data-api-params="filters[]=subject5=19">Other</div>
+    </div>
+
+    <div style="display: none" class ="sub-subjects-container" id="health_and_sports_subjects">
+      <div class="btn well span3 sub-subject short" id="Sports" data-api-params="filters[]=subject2=2">Sports</div>
+      <div class="btn well span3 sub-subject" id="Health and Wellness" data-api-params="filters[]=subject2=27">Health & Wellness</div>
+      <div class="btn well span3 sub-subject short" id="Nutrition" data-api-params="filters[]=subject2=28">Nutrition</div>
+      <div class="btn well span3 sub-subject" id="Gym and Fitness" data-api-params="filters[]=subject2=29">Gym & Fitness</div>
+    </div>
+  </div>
 </div>
 <div class="main-background">
   <div class="container">
