@@ -42,29 +42,31 @@ body {
   background-image: none;
 }
 
-#logo-nav {
+#header {
   background-color: lightgray;
-  padding: 15px;
-  height: 100px;
-  .logo h2 {
+  height: 130px;
+}
+#logo-outer {
+  margin: 0 auto;
+  width: 1200px;
+  #logo-left h2 {
     color: black;
     font-size: 800%;
     font-family: 'Kaushan Script', cursive;
     text-align: center;
     margin-top: 30px;
-    padding-left: 15%;
     float: left;
     text-shadow: 0px 4px 0px white;
   }
-  .tagline {
+  #tagline-right {
     color: #999;
     margin-left: 20px;
     float: left;
-    .tag {
+    #main-tag {
       margin-top: 15px;
       font-size: 1.81em;
     }
-    .sub-tag {
+    #sub-tag {
       font-size: 3.85em;
     }
   }
