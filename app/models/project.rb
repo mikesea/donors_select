@@ -3,7 +3,7 @@ require 'net/http'
 class Project
 
   API_KEY = 'DONORSCHOOSE'
-  BASE_URI = "http://api.donorschoose.org/common/json_feed.html?&max=50&APIKey=#{API_KEY}"
+  BASE_URI = "http://api.donorschoose.org/common/json_feed.html?max=50&APIKey=#{API_KEY}"
 
   class << self
     attr_writer :redis
@@ -26,8 +26,11 @@ class Project
   end
 
   def self.build_uri(params=nil)
-    params = [] unless params
-    BASE_URI + "&" + params.join("&")
+    if params
+      BASE_URI + "&" + params.join("&")
+    else
+      BASE_URI
+    end
   end
 
 end
