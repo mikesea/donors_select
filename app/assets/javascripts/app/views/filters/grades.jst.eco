@@ -1,6 +1,0 @@
-<div id="grade-buttons-container">
-  <div class="grade_button btn btn-large" id="Grades PreK-2" data-api-params="filters[]=gradeType=1">PreK-2</div>
-  <div class="grade_button btn btn-large" id="Grades 3-5" data-api-params="filters[]=gradeType=2">3-5</div>
-  <div class="grade_button btn btn-large" id="Grades 6-8" data-api-params="filters[]=gradeType=3">6-8</div>
-  <div class="grade_button btn btn-large" id="Grades 9-12" data-api-params="filters[]=gradeType=4">9-12</div>
-</div>

@@ -22,6 +22,8 @@ class Projector extends Spine.Controller
 
   showInfo: (e) ->
     $('.spotlight-inner').empty()
+    $('.project-image').removeClass("no-filter")
+    $(e.target).addClass("no-filter")
     project_id = $(e.target).parent().attr('data-id')
     project = Project.find(project_id)
     @displayRecommendation(project)
