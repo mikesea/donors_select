@@ -348,6 +348,14 @@ body {
   -webkit-filter: grayscale(1); /* Google Chrome & Safari 6+ */
 }
 
+.no-filter {
+  box-shadow: 0 0 5px $darkBlue;
+  -webkit-box-shadow: 0 0 5px $darkBlue;
+  -moz-box-shadow: 0 0 5px $darkBlue;
+  filter: none;
+  -webkit-filter: grayscale(0);
+}
+
 .project-image:hover {
   box-shadow: 0 0 5px $darkBlue;
   -webkit-box-shadow: 0 0 5px $darkBlue;
