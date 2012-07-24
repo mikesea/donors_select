@@ -11,8 +11,7 @@ class Clearer extends Spine.Controller
     super
 
   clearFilters: (e) ->
-    $(".filter-actions").slideUp("slow")
-    $(".filter-actions").empty()
+    $(".filter-actions > *").filter(":visible").slideUp("slow")
     $(".filter_button").removeClass("active")
     $(".grade_button").removeClass("active")
     $("#state-button .state_text").text("State")
