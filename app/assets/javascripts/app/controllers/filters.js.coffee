@@ -165,14 +165,10 @@ class Filterer extends Spine.Controller
     sub_subject_buttons.show()
     $("#subject-button .subject_text").text(subject_button.text())
     $("#subject-button").attr({'data-api-params': subject_button.attr('data-api-params')})
-    if subject_button.hasClass("short")
-      removeClass("shrink")
-    else
-      $("#subject-button").addClass("shrink")
+    $("#subject-button").removeClass("append_sub_subject")
     @submitAPIRequest()
 
   showSpecialNeeds: (e) ->
-    $("#subject-button").removeClass("shrink")
     $("#subject-button .subject_text").text("Special Needs")
     $("#subject-button").attr({'data-api-params': $(e.target).attr('data-api-params')})
     $(".sub-subjects-container").hide()
@@ -182,13 +178,11 @@ class Filterer extends Spine.Controller
 
   changeButtonText: (e) ->
     $(".sub-subject").removeClass("active")
+    $('.add-sub-subject').remove()
     sub_subject_button = $(e.target)
     sub_subject_button.addClass("active")
-    if sub_subject_button.hasClass("short")
-      $("#subject-button").removeClass("shrink")
-    else
-      $("#subject-button").addClass("shrink")
-    $("#subject-button .subject_text").text(sub_subject_button.text())
+    $("#subject-button .subject_text").append("<span class='add-sub-subject'><hr/>#{sub_subject_button.text()}</span>")
+    $("#subject-button").addClass("append_sub_subject")
     $("#subject-button").attr({'data-api-params': sub_subject_button.attr('data-api-params')})
     @submitAPIRequest()
 

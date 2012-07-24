@@ -129,6 +129,25 @@ body {
   box-shadow: inset 5px 5px 10px #888;
 }
 
+.filter_button hr {
+  margin-top: 3px;
+  margin-bottom: 0px;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: darkGray;
+  border-bottom-width: 0px;
+}
+
+.append_sub_subject {
+  line-height: 1.2;
+  font-size: 30px;
+}
+
+.add-sub-subject {
+  font-size: 20px;
+  line-height: 1;
+}
+
 #grade-buttons-container {
   margin-left: auto;
   margin-right: auto;
