@@ -28,7 +28,7 @@ class Projector extends Spine.Controller
 
   addAll: =>
     @projects.empty()
-    for project in Project.all().slice(0,20)
+    for project in Project.all()
       @addProject(project)
 
   checkRecommendation: =>
