@@ -6,7 +6,7 @@ class Fetcher
       json = JSON.parse(Net::HTTP.get(URI(uri))).to_json
       Project.redis.set uri, json
     end
-    publish(JSON.parse(Project.redis.get(uri)), user_token)
+    publish(JSON.parse(Project.redis.get(uri)), user_token) if user_token
   end
 
 private
