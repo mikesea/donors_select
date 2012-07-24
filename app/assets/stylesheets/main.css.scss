@@ -97,7 +97,7 @@ body {
   height: 120px;
   margin: 0 auto;
   float: center;
-  padding-left: 27px;
+  padding-left: 40px;
 }
 
 .filter_buttons_container h4 {
@@ -113,10 +113,10 @@ body {
   border-radius: 5px;
   text-align: center;
   font-size: 36px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 10px;
+  margin-right: 16px;
   line-height: 1.5;
-  width: 320px;
+  width: 330px;
 }
 
 .filter_button:hover {
@@ -263,6 +263,10 @@ body {
   box-shadow: inset 5px 5px 10px #888;
 }
 
+#applied_learning_subjects {
+  height: 150px;
+}
+
 /* This formats the patterned background behind the projects grid. */
 .main-background {
   height: 100%;
@@ -348,6 +352,14 @@ body {
   -webkit-filter: grayscale(1); /* Google Chrome & Safari 6+ */
 }
 
+.no-filter {
+  box-shadow: 0 0 5px $darkBlue;
+  -webkit-box-shadow: 0 0 5px $darkBlue;
+  -moz-box-shadow: 0 0 5px $darkBlue;
+  filter: none;
+  -webkit-filter: grayscale(0);
+}
+
 .project-image:hover {
   box-shadow: 0 0 5px $darkBlue;
   -webkit-box-shadow: 0 0 5px $darkBlue;
@@ -363,6 +375,7 @@ body {
   margin: 11px;
   img {
     width: 119px;
+    height: 119px;
     margin-bottom: 20px;
   }
 }
@@ -401,9 +414,40 @@ body {
 }
 
 /* Footer */
-.footer {
+#footer {
   background: darkgray;
   height: 300px;
+  #images-container {
+    width: 1141px;
+    margin: 0 auto;
+    #images-left {
+      img {
+        margin-right: 25px;
+        width: 150px;
+        float: left;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      }
+      background-color: #f0f0f0;
+      padding-top: 25px;
+      padding-left: 25px;
+      padding-bottom: 25px;
+      -webkit-border-bottom-right-radius: 9px;
+      -moz-border-radius-bottomright: 9px;
+      border-bottom-right-radius: 9px;
+      -webkit-border-bottom-left-radius: 9px;
+      -moz-border-radius-bottomleft: 9px;
+      border-bottom-left-radius: 9px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      width: 707px;
+    }
+  }
 }
 
 /* Loading Filler */

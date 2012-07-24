@@ -14,14 +14,23 @@ class Projector extends Spine.Controller
     Project.bind 'create', @addProject
     Project.bind 'refresh', @addAll
     Project.fetch()
-    Project.bind "refresh", @checkRecommendation
-    Project.bind "create", @checkRecommendation
+    Project.bind "refresh", @makeRecommendation
+    Project.bind "create", @makeRecommendation
     ProjectsCount.bind "refresh", @updateCount
     ProjectsCount.bind "create", @updateCount
     ProjectsCount.fetch()
 
+  makeRecommendation: =>
+    project = Project.first()
+    project_id = Project.first().id
+    $(".project-image").removeClass("no-filter")
+    $("div[data-id='#{project_id}']").children().addClass("no-filter")
+    @displayRecommendation(project)
+
   showInfo: (e) ->
     $('.spotlight-inner').empty()
+    $('.project-image').removeClass("no-filter")
+    $(e.target).addClass("no-filter")
     project_id = $(e.target).parent().attr('data-id')
     project = Project.find(project_id)
     @displayRecommendation(project)
@@ -30,9 +39,6 @@ class Projector extends Spine.Controller
     @projects.empty()
     for project in Project.all()
       @addProject(project)
-
-  checkRecommendation: =>
-    @displayRecommendation(Project.first())
 
   addProject: (project) =>
     @projects.append @projectTemplate(project)
