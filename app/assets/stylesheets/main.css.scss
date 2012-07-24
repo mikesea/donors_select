@@ -54,6 +54,9 @@ body {
     float: left;
     text-shadow: 0px 4px 0px #f0f0f0;
   }
+  #logo-left a:hover {
+    text-decoration: none;
+  }
   #tagline-right {
     color: #f0f0f0;
     margin-top: 15px;
@@ -293,7 +296,7 @@ body {
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0 5px rgba(0,0,0,0.2);
   background: #F0F0F0;
-  min-height: 375px;
+  min-height: 412px;
 }
 
 .container {
