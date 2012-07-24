@@ -51,4 +51,3 @@
   <div class="btn well span3 sub-subject short" id="Nutrition" data-api-params="filters[]=subject2=28">Nutrition</div>
   <div class="btn well span3 sub-subject" id="Gym and Fitness" data-api-params="filters[]=subject2=29">Gym & Fitness</div>
 </div>
-
