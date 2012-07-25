@@ -4,6 +4,6 @@ module ProjectsHelper
   end
 
   def token_meta_tag
-    tag('meta', name: 'session-token', content: cookies.signed[:token])
+    tag('meta', name: 'session-token', content: session_token)
   end
 end
