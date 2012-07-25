@@ -9,12 +9,37 @@ DonorsSelect reimagines the DonorsChoose project discovery experience in a singl
 #Running Locally
 DonorsSelect uses Redis and Resque to cache project data for quicker load times. To run the application locally, follow these steps:
 
-1. <code>git clone git@github.com:mikesea/donors_select.git</code>
-2. <code>bundle</code> and start the server with <code>bundle exec thin start</code>
-3. start redis with <code>redis-server /usr/local/etc/redis.conf</code>
-4. start the resque job with <code>QUEUE=* rake environment resque:work VERBOSE=true</code>
+1. Clone and bundle the app:
+```
+$ git clone git@github.com:mikesea/donors_select.git
+$ cd donors_select
+$ bundle
+```
+
+2. Create an initializer file inside the <code>config/initializers</code> called <code>pusher.rb</code>. This file should contain your [Pusher](http://pusher.com) account credentials. Here's an example:
+```
+Pusher.app_id = 'your-pusher-app-id'
+Pusher.key = 'your-pusher-key'
+Pusher.secret = 'your-pusher-secret'
+```
+
+3. Start Redis. If you're on a Mac, and you've installed Redis via Homebrew, run:
+```
+$ redis-server /usr/local/etc/redis.conf 
+```
+
+4. Start the Resque workers:
+```
+$ QUEUE=* rake environment resque:work VERBOSE=true
+```
+
+5. Start the server:
+```
+$ bundle exec thin start
+```
 
 #Tests
+
 To run the tests, after cloning the repo, simply run:
 ```
 $ rake spec
