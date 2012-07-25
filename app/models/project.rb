@@ -1,18 +1,9 @@
 require 'net/http'
 
 class Project
-
-  class << self
-    attr_writer :redis
-
-    def redis
-      @redis ||= $redis
-    end
-  end
-
   def self.find_by(params)
     uri = build_uri(params)
-    if projects = redis.get(uri)
+    if projects = $redis.get(uri)
       JSON.parse projects
     end
   end
@@ -29,5 +20,4 @@ class Project
       BASE_URI
     end
   end
-
 end
