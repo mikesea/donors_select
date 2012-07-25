@@ -15,8 +15,11 @@ class Filterer extends Spine.Controller
 
   constructor: ->
     super
+    Projector.bind "paginate", @submitAPIRequest
+    Clearer.bind "clearFilters", @submitAPIRequest
 
-  submitAPIRequest: ->
+  submitAPIRequest: =>
+    paginate = $("#paginate").attr('data-api-params')
     state = $("#state-button").attr('data-api-params')
     subject = $("#subject-button").attr('data-api-params')
     grade = $("#grade-button").attr('data-api-params')
@@ -25,7 +28,7 @@ class Filterer extends Spine.Controller
     $.ajax
       type: 'get',
       url: 'projects.json',
-      data: state + "&" + subject + "&" + grade
+      data: state + "&" + subject + "&" + grade + "&" + paginate
       success: (projects) ->
         Project.deleteAll()
         if projects.length > 0
@@ -36,18 +39,27 @@ class Filterer extends Spine.Controller
     $.ajax
       type: 'get',
       url: 'projects_counts.json',
-      data: state + "&" + subject + "&" + grade
-      success: (count) ->
+      data: state + "&" + subject + "&" + grade + "&" + paginate
+      success: (data) ->
         ProjectsCount.deleteAll()
-        ProjectsCount.create(count, {ajax: false})
+        if data.count > 0
+          ProjectsCount.create(data, {ajax: false})
 
   loading: ->
+    $(".projects-count").empty()
+    $(".projects-count").append "<h1>Loading projects...</h1>"
     $(".projects-list").empty()
     $(".projects-list").append @view('projects/loading')
+    $("#paginate-next").hide()
+    $("#paginate-previous").hide()
 
   addClearer: ->
-    unless $("#clear-filters").is(':visible')
-      $("#clear-filters").fadeIn()
+    state = $("#state-button").attr('data-api-params')
+    subject = $("#subject-button").attr('data-api-params')
+    grade = $("#grade-button").attr('data-api-params')
+    if state.length > 0 || subject.length > 0 || grade.length > 0
+      unless $("#clear-filters").is(':visible')
+        $("#clear-filters").fadeIn()
 
   filterByState: (e) ->
     @setActiveButton('#state-button')
@@ -71,6 +83,7 @@ class Filterer extends Spine.Controller
         $("#state-button").attr({'data-api-params':""})
         $("#state-button .state_text").text("State")
         priorstate = ""
+        Filterer.trigger "clearIndex"
         @submitAPIRequest()
       else
         if priorstate
@@ -79,6 +92,7 @@ class Filterer extends Spine.Controller
         $("#state-button .state_text").text "State: "+data.name
         $("#state-button").attr({'data-api-params': 'filters[]=state='+data.name})
         priorstate = data
+        Filterer.trigger "clearIndex"
         @submitAPIRequest()
       
   clearPriorState = (priorstate) ->
@@ -125,6 +139,7 @@ class Filterer extends Spine.Controller
     grade_button.addClass("active")
     $("#grade-button .grade_text").text(grade_button.attr('id'))
     $("#grade-button").attr({'data-api-params': grade_button.attr('data-api-params')})
+    Filterer.trigger "clearIndex"
     @submitAPIRequest()
 
   showSubSubjects: (e) ->
@@ -141,6 +156,7 @@ class Filterer extends Spine.Controller
     $("#subject-button .subject_text").text(subject_button.text())
     $("#subject-button").attr({'data-api-params': subject_button.attr('data-api-params')})
     $("#subject-button").removeClass("append_sub_subject")
+    Filterer.trigger "clearIndex"
     @submitAPIRequest()
 
   showSpecialNeeds: (e) ->
@@ -149,6 +165,7 @@ class Filterer extends Spine.Controller
     $(".sub-subjects-container").hide()
     $(".subject").removeClass("active")
     $(e.target).addClass("active")
+    Filterer.trigger "clearIndex"
     @submitAPIRequest()
 
   changeButtonText: (e) ->
@@ -159,6 +176,7 @@ class Filterer extends Spine.Controller
     $("#subject-button .subject_text").append("<span class='add-sub-subject'><hr/>#{sub_subject_button.text()}</span>")
     $("#subject-button").addClass("append_sub_subject")
     $("#subject-button").attr({'data-api-params': sub_subject_button.attr('data-api-params')})
+    Filterer.trigger "clearIndex"
     @submitAPIRequest()
 
   setActiveButton: (selector) ->

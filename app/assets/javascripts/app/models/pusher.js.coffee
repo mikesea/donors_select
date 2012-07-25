@@ -23,9 +23,11 @@ class PusherHandler extends Spine.Module
     switch type
       when 'projects_fetch'
         Project.deleteAll()
+        ProjectsCount.deleteAll()
         projects.empty()
-        projectsCount.empty()
-        projectsCount.append "<h1>#{msg.projects.totalProposals} matching projects</h1>"
+        ProjectsCount.create
+          count: parseInt(msg.projects.totalProposals)
+          index: parseInt(msg.projects.index)
         for project in msg.projects.proposals
           Project.create(project)
       else

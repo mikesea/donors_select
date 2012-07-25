@@ -307,6 +307,21 @@ body {
   min-height: 412px;
 }
 
+#paginate {
+  background: #F0F0F0;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+  height: 20px;
+  padding-bottom: 15px;
+  #paginate-next {
+    float: right;
+    margin-right: 15px;
+  }
+  #paginate-previous {
+    float: auto;
+    margin-left: 15px;
+  }
+}
+
 .container {
   width: 1140px;
 }
