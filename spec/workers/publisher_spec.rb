@@ -7,12 +7,8 @@ describe "Publisher" do
       let(:projects) { JSON.parse(serve_response(:projects)) }
       let(:user_token) { "asdf1234"}
 
-      before(:each) do
-        Pusher.stub(:trigger)
-        Pusher[user_token].should_receive(:trigger)
-      end
-
       it "publishes a project via pusher" do
+        Pusher[user_token].should_receive(:trigger)
         Publisher.perform(projects, user_token)
       end
     end
