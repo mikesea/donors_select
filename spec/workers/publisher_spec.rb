@@ -8,6 +8,7 @@ describe "Publisher" do
       let(:user_token) { "asdf1234"}
 
       before(:each) do
+        Pusher.stub(:trigger)
         Pusher[user_token].should_receive(:trigger)
       end
 
